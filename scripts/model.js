@@ -47,6 +47,34 @@ const model = {
       commentText: '',
       commentIsAnonymous: false,
       confirmSubmission: false,
+    },
+    userSignup: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      avatarId: 0,
+      confirmCreation: false,
+    },
+    userLogin: {
+      email: '',
+      password: '',
+      isCorrect: null,
+    },
+    userList: {    
+      markedUserIds: [],
+      checkedAll: false,
+    },
+    userEdit: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      userId: null,
+      roleId: null,
+      deleteUser: false,
+      confirmEdit: false,
     }
   },
 
@@ -60,6 +88,7 @@ const model = {
         email: 'lillie@example.com',
         password: 'N0tS4f3Pass_',
         roleId: 2, // user
+        avatarId: 0,
       },
       {
         id: 1,
@@ -68,6 +97,7 @@ const model = {
         email: 'Ola@example.com',
         password: 'N0rdp@ssw0rd99_',
         roleId: 2, // user
+        avatarId: 1,
       }
     ],
     roles: [
@@ -105,5 +135,9 @@ const model = {
         userId: null // om null er den anonym
       }
     ],
+    avatars: [
+      {id: 0, url: '', alt: ''},
+      {id: 1, url: '', alt: ''},
+    ]
   },
 }
