@@ -8,3 +8,12 @@ function getUserByEmail(email) {
     }
     return null;
 }
+
+function getHighestIdFromArrayObj(input = []) {
+    let highestId = 0;
+
+    for (const obj of input) {
+        if (obj?.id > highestId) highestId = obj.id;
+    }
+    return highestId;
+}

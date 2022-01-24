@@ -1,5 +1,6 @@
 function updateLoginView() {
     let html = '';
+    let pattern = "^[^@\s]+@[^@\s]+\.[^@\s]+$";
     html += /*html*/`
     <h1>Login side</h1>
     <h2>Login to Continue</h2>
@@ -7,6 +8,7 @@ function updateLoginView() {
       <div>
         <label>Email: </label>
         <input value="${model.inputs.userLogin.email}" 
+          pattern="${pattern}"
           onchange="model.inputs.userLogin.email = this.value" 
           type="email"
           placeholder="type in email"
@@ -19,8 +21,7 @@ function updateLoginView() {
           placeholder="password here" 
           required>
       </div>
-      <button
-        type="submit">login</button>
+      <button type="submit">login</button>
      
     </article>
     <button onclick="goToSignUp()">Sign up</button>

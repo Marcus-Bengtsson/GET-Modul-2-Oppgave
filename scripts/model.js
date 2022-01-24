@@ -54,8 +54,8 @@ const model = {
       email: '',
       password: '',
       confirmPassword: '',
-      avatarId: 0,
-      confirmCreation: false,
+      confirmEmail: null,
+      confirmCreation: null,
     },
     userLogin: {
       email: '',
@@ -103,7 +103,8 @@ const model = {
     ],
     roles: [
       { id: 0, name: 'admin', permissions: [0, 1] },
-      { id: 1, name: 'manager', permissions: [0, 1] }
+      { id: 1, name: 'manager', permissions: [0, 1] },
+      { id: 2, name: 'bruker', permissions: [2] },
     ],
     groups: [
       {

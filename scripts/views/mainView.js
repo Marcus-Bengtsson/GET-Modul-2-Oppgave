@@ -1,4 +1,3 @@
-
 updateMainView();
 function updateMainView() {
   let html = '';
