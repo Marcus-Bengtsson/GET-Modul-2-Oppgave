@@ -18,6 +18,7 @@ function handleSignupOnClick() {
     checkPasswords();
     if(signupInputs.confirmEmail === false || signupInputs.confirmPassword === false) {
         updateMainView();
+        model.inputs.userSignup.password = "";
         return;
     }
     createNewUserFromSignup();

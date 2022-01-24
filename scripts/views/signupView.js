@@ -1,6 +1,5 @@
 function updateSignUpView() {
   let html = '';
-  let pattern = "^[^@\s]+@[^@\s]+\.[^@\s]+$";
   html += /*html*/`
   <h1>Sign up</h1>
   <h2>Sign up to get an account</h2>
@@ -21,25 +20,15 @@ function updateSignUpView() {
     </div>
     <div>
       <label>Email: </label>
-      <input onchange="model.inputs.userSignup.email = this.value"
-      pattern="${pattern}"
-       type="email" 
-       placeholder="Type in email" 
-       required>
+      ${emailInputHTML(model.inputs.userSignup.email, "model.inputs.userSignup.email = this.value")}
     </div>
     <div>
       <label>Password: </label>
-      <input onchange="model.inputs.userSignup.password = this.value"
-       type="password" 
-       placeholder="*****"
-       required>
+      ${passwordInputHTML(model.inputs.userSignup.password, "model.inputs.userSignup.password = this.value")}
     </div>
     <div>
       <label>Confirm Password: </label>
-      <input oninput="checkPasswords()" onchange="model.inputs.userSignup.confirmPassword = this.value"
-       type="Password" 
-       placeholder="*****" 
-       required>
+      ${passwordInputHTML(model.inputs.userSignup.confirmPassword, "model.inputs.userSignup.confirmPassword = this.value")}
     </div>
     <input type="submit" value="Sign up"/>
   </form>

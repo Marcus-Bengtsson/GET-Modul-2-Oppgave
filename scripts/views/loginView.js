@@ -7,23 +7,17 @@ function updateLoginView() {
     <form name="login" onsubmit="handleLoginOnClick(); return false">
       <div>
         <label>Email: </label>
-        <input value="${model.inputs.userLogin.email}" 
-          pattern="${pattern}"
-          onchange="model.inputs.userLogin.email = this.value" 
-          type="email"
-          placeholder="type in email"
-          required>
+        ${emailInputHTML(model.inputs.userLogin.email, "model.inputs.userLogin.email = this.value")}
       </div>
       <div>
         <label>Password: </label>
-        <input onchange="model.inputs.userLogin.password = this.value" 
-          type="password"
-          placeholder="password here" 
-          required>
+        ${passwordInputHTML(model.inputs.userLogin.password, "model.inputs.userLogin.password = this.value")}
       </div>
       <button type="submit">login</button>
+      
      
-    </article>
+    </form>
+    <button onclick="justlogin()">Dev login</button>
     <button onclick="goToSignUp()">Sign up</button>
     ${isUserLoginCorrect()}
     `
