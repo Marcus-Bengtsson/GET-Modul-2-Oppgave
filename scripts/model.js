@@ -1,8 +1,8 @@
 const model = {
   // app
   app: {
-    page: 'groupList',
-    userLoggedInId: 2, // null is loggedOut
+    page: 'userLogin',
+    userLoggedInId: null, // null is loggedOut
   },
 
   // input
@@ -53,6 +53,7 @@ const model = {
       lastName: '',
       email: '',
       password: '',
+      confirmPassword: '',
       avatarId: 0,
       confirmCreation: false,
     },
@@ -94,7 +95,7 @@ const model = {
         id: 1,
         firstName: 'Ola',
         lastName: 'Nordmann',
-        email: 'Ola@example.com',
+        email: 'ola@example.com',
         password: 'N0rdp@ssw0rd99_',
         roleId: 2, // user
         avatarId: 1,

@@ -1,0 +1,7 @@
+html {
+    background-color: hsl(0, 0%, 18%);
+    color: wheat;
+    display: grid;
+    justify-items: center;
+}
+

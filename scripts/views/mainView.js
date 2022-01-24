@@ -2,19 +2,12 @@
 updateMainView();
 function updateMainView() {
   let html = '';
-  html += updateLoginView();
-  document.getElementById('app').innerHTML = html;  
+  if(model.app.page === 'userLogin') {
+    html += updateLoginView();
+  }
+  if (model.app.page === 'userSignup') {
+    html += updateSignUpView();
+  }
+  document.getElementById('app').innerHTML = html;
 }
-
-
-
-// filstruktur
-  // index.html
-    // scripts
-      // model.js
-      // views
-        // groupNewView.js
-      // controller
-        // groupNewController.js
-        
 
