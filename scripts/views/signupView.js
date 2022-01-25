@@ -4,49 +4,50 @@ function updateSignUpView() {
   <h1>Sign up</h1>
   <h2>Sign up to get an account</h2>
   <form name="login" onsubmit="handleSignupOnClick(); return false">
-    <div>
+    <div class="input-items">
       <label>First name </label>
       <input onchange="model.inputs.userSignup.firstName = this.value"
        type="text" 
        placeholder="First name" 
        required>
     </div>
-    <div>
+    <div class="input-items">
       <label>Last name </label>
       <input onchange="model.inputs.userSignup.lastName = this.value"
        type="text" 
        placeholder="Last name" 
        required>
     </div>
-    <div>
+    <div class="input-items">
       <label>Email: </label>
       ${emailInputHTML(model.inputs.userSignup.email, "model.inputs.userSignup.email = this.value")}
     </div>
-    <div>
-      <label>Password: </label>
+    <div class="input-items">
+      <label>Password (minimum 8 characters): </label>
       ${passwordInputHTML(model.inputs.userSignup.password, "model.inputs.userSignup.password = this.value")}
     </div>
-    <div>
+    <div class="input-items">
       <label>Confirm Password: </label>
       ${passwordInputHTML(model.inputs.userSignup.confirmPassword, "model.inputs.userSignup.confirmPassword = this.value")}
     </div>
     <input type="submit" value="Sign up"/>
   </form>
-  <button onclick="goToLogin()">Return to login</button>
+  <button onclick="returnToLoginPage()">Return to login</button>
   ${doPasswordsMatch()}
   ${isEmailUnique()}
     `
   return html;
 }
 
-function doPasswordsMatch(){
+function doPasswordsMatch() {
   const isCorrect = model.inputs.userSignup.confirmCreation;
   if (isCorrect === false) {
     return '<p style="color: red;">Passwords do not match</p>'
   }
   return '';
 }
-function isEmailUnique(){
+
+function isEmailUnique() {
   const isCorrect = model.inputs.userSignup.confirmEmail;
   if (isCorrect === false) {
     return '<p style="color: red;">Email has already been used</p>'

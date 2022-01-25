@@ -1,15 +1,11 @@
-function goToLogin() {
+function returnToLoginPage() {
     model.app.page = 'userLogin';
     updateMainView();
 }
-
-// handleSignupOnClick
-    // checkIfUserExists
-    // checkPasswords
-    // createNewUser
-    // model.app.page = 'login'
-    // updateView
-
+/**
+ * Sign up
+ * @description Checks if email and password is ok, then adds new user if there's no error.
+ */
 function handleSignupOnClick() {
     const signupInputs = model.inputs.userSignup;
     signupInputs.confirmEmail = null;
@@ -24,15 +20,13 @@ function handleSignupOnClick() {
     createNewUserFromSignup();
     model.app.page = 'userLogin';
     updateMainView();
+    return;
 }
 
-
-
-
-
-
-// createNewUserFromSignup() | return;
-// new object from input
+/**
+ * Create new user
+ * @description creates new user and gives the user an ID.
+ */
 function createNewUserFromSignup() {
     const userSignupInputs = model.inputs.userSignup;
     let highestId = getHighestIdFromArrayObj(model.data.users);
@@ -49,19 +43,21 @@ function createNewUserFromSignup() {
     model.data.users.push(newUser);
 }
 
-
-// checkIfUserExists(email)
-// getUserByEmail
-// if null then return true
-
+/**
+ * Email verification
+ * @description if email is used by another user,
+ * then change userSignup.confirmEmail in model to be false.
+ * @param {string} email 
+ */
 function checkIfEmailUsed(email) {
     if (getUserByEmail(email) != null ) model.inputs.userSignup.confirmEmail == false;
     else model.inputs.userSignup.confirmEmail == true;
-    return;
 }
 
-// checkPasswords() | returns true or false
-// if password and confirmPassword is same
+/**
+ * Password verification
+ * @description checks if passwords are equal.
+ */
 function checkPasswords() {
     if (model.inputs.userSignup.password === model.inputs.userSignup.confirmPassword) {
         model.inputs.userSignup.confirmCreation = true;

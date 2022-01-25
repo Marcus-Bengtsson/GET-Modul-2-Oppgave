@@ -1,27 +1,22 @@
 function updateLoginView() {
-    let html = '';
-    let pattern = "^[^@\s]+@[^@\s]+\.[^@\s]+$";
-    html += /*html*/`
+    return /*html*/`
     <h1>Login side</h1>
     <h2>Login to Continue</h2>
     <form name="login" onsubmit="handleLoginOnClick(); return false">
-      <div>
+      <div class="input-items">
         <label>Email: </label>
         ${emailInputHTML(model.inputs.userLogin.email, "model.inputs.userLogin.email = this.value")}
       </div>
-      <div>
-        <label>Password: </label>
+      <div class="input-items">
+        <label>Password (minimum 8 characters): </label>
         ${passwordInputHTML(model.inputs.userLogin.password, "model.inputs.userLogin.password = this.value")}
       </div>
       <button type="submit">login</button>
-      
-     
+      <button onclick="oneClickLoginDev()">Dev login</button>
+      <button onclick="redirectToSignUp()">Sign up</button>
     </form>
-    <button onclick="justlogin()">Dev login</button>
-    <button onclick="goToSignUp()">Sign up</button>
     ${isUserLoginCorrect()}
     `
-    return html;
 }
 
 function isUserLoginCorrect(){

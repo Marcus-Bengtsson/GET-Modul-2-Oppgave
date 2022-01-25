@@ -5,3 +5,20 @@ html {
     justify-items: center;
 }
 
+
+.input-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Font size of the root element. */
+    margin: 0.5rem 0;
+}
+
+input[type=email],
+input[type=password],
+input[type=text] {
+    max-width: 15rem;
+    margin-left: 0.5rem;
+}
+
+
+
