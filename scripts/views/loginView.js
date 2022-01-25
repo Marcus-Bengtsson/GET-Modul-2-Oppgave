@@ -12,9 +12,9 @@ function updateLoginView() {
         ${passwordInputHTML(model.inputs.userLogin.password, "model.inputs.userLogin.password = this.value")}
       </div>
       <button type="submit">login</button>
-      <button onclick="oneClickLoginDev()">Dev login</button>
-      <button onclick="redirectToSignUp()">Sign up</button>
     </form>
+    <button onclick="oneClickLoginDev()">Dev login</button>
+    <button onclick="redirectToSignUp()">Sign up</button>
     ${isUserLoginCorrect()}
     `
 }

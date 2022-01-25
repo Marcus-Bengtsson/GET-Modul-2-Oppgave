@@ -1,8 +1,8 @@
 const model = {
   // app
   app: {
-    page: 'userLogin',
-    userLoggedInId: null, // null is loggedOut
+    page: 'dashboard',
+    userLoggedInId: 1, // null is loggedOut
   },
 
   // input

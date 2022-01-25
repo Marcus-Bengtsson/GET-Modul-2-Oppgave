@@ -1,0 +1,28 @@
+.information-card {
+    width:  20rem;
+    height: 10rem;
+    padding: 2rem;
+}
+
+.dashboard-main {
+    grid-area: content;
+    display: grid;
+    grid-template-areas: "menu information";
+    padding: 0 15rem;
+    gap: 1rem;
+} 
+
+.dashboard-header {
+    grid-area: header;
+    display: inline-block;
+}
+
+.navMenu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: column;
+}
+
+.information {
+    grid-area: information;    
+}
