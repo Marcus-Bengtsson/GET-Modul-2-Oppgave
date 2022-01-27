@@ -1,7 +1,25 @@
 .information-card {
+    display: inline-block;
     width:  20rem;
+    padding: 1rem;
+    object-position: 50% 0;
+    background-color: white;
+    text-decoration: none;
+    color: rgb(44, 44, 44);
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.information-card > img {
+    width: 100%;
     height: 10rem;
-    padding: 2rem;
+    object-fit: cover;
 }
 
 .grid-main {
@@ -13,16 +31,24 @@
 .grid-dashboard {
     display: grid;
     grid-template-areas: 'menu information';
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
 }
 
 .navMenu {
     grid-area: menu;
     display: flex;
     flex-direction: column;
+    margin-top: 3rem;
 }
 
 .information {
-    grid-area: information;    
+    grid-area: information;
+  
+}
+
+.information-cards {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;  
 }

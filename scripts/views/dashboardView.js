@@ -9,9 +9,11 @@ function updateDashboardView () {
       </nav>
       <article class="information">
         <h2>Informasjon</h2>
-        ${informationCard()}
-        ${informationCard()}
-        ${informationCard()}
+        <div class="information-cards">
+          ${informationCard()}
+          ${informationCard()}
+          ${informationCard()}
+        </div>
       </article>
     </div>`;
 }
@@ -26,16 +28,26 @@ function navbarCard() {
       </div>
   </button>`
 }
-function informationCard(){
-    return /*html*/`
-    <button class="information-card">
-    <img/>
+
+function articleCards(){
+  let html = ``;
+    for (const article of getArticles()) {
+      html += informationCard(article)
+    }
+  return html;
+}
+  // getArticles -> HTML using informationCard()
+  
+
+function informationCard(articleObj = model.data.articles[0]){
+  return /*html*/`
+    <a class="information-card" href="${articleObj.url}">
+    <img src="${articleObj.imageURL}">
     <div>
-      <h3>Tittel</h3>
-      <p>Beskrivelse</p>
+      <h3>${articleObj.title}</h3>
+      <p>${articleObj.description}</p>
     </div>
- </button>`
-    
+    </a>`
 }
 
 /*

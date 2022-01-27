@@ -140,6 +140,35 @@ const model = {
     avatars: [
       {id: 0, url: '', alt: ''},
       {id: 1, url: '', alt: ''},
-    ]
+    ],
+    articles: [
+      {
+        id: 0,
+        title: 'Overskrift',
+        description: 'Kort beskrivelse',
+        imageURL: 'https://i.imgur.com/RvYL7wB.png',
+        url: 'https://www.getacademy.no/',
+      },
+      {
+        id: 1,
+        title: 'Overskrift',
+        description: 'Kort beskrivelse',
+        imageURL: 'https://i.imgur.com/RvYL7wB.png',
+        url: 'https://www.getacademy.no/',
+      },
+      {
+        id: 2,
+        title: 'Overskrift',
+        description: 'Kort beskrivelse',
+        imageURL: 'https://i.imgur.com/RvYL7wB.png',
+        url: 'https://www.getacademy.no/',
+      },
+    ],
   },
 }
+// imageURL
+// Articles
+// Id
+// Titel
+// Beskrivelse
+// Bildelink

@@ -33,8 +33,6 @@ function updateMainView() {
   </main>
   <footer class="grid-footer">
 
-  </footer>
-  
-  `
+  </footer>`
   document.getElementById('app').innerHTML = html;
 }
