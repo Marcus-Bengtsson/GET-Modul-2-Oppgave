@@ -1,0 +1,22 @@
+/* || Grid layout */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+  grid-template-rows: 1fr 15fr 1fr;
+  height: 100vh;
+}
+
+.grid-main {
+  grid-area: main;
+  display: grid;
+  place-items: center;
+}
+
+.grid-header {
+  grid-area: header;
+  background-color: rgb(41, 41, 41);
+}

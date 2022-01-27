@@ -1,7 +1,7 @@
 function updateDashboardView () {
     return /*html*/`
     <div class="grid-dashboard">
-      <nav class="navMenu">
+      <nav class="navMenu" aria-label="cards">
           ${navbarCard()}
           ${navbarCard()}
           ${navbarCard()}
