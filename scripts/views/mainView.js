@@ -3,24 +3,38 @@ updateMainView();
 function updateMainView() {
   let html = '';
   html += /*html*/`
-  <header class="header">
-    <h1>${model.app.page}</h1>
-  </header>
+
   `
+
+  let main = '';
+  
+
   const appPage = model.app.page;
   switch(appPage) {
     case 'userLogin': 
-      html += updateLoginView();
+      main += updateLoginView();
       break;
     case 'userSignup': 
-      html += updateSignUpView();
+      main += updateSignUpView();
       break;
     case 'dashboard':
-      html += updateDashboardView();
+      main += updateDashboardView();
       break;
     default:
-      html += `Error ${appPage} not found`
+      main += `Error ${appPage} not found`
       break;
   }
+  html = `
+  <header class="grid-header">
+    <h1>${model.app.page}</h1>
+  </header>
+  <main class="grid-main">
+    ${main}
+  </main>
+  <footer class="grid-footer">
+
+  </footer>
+  
+  `
   document.getElementById('app').innerHTML = html;
 }

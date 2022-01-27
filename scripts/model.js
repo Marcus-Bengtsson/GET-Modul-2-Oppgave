@@ -1,7 +1,7 @@
 const model = {
   // app
   app: {
-    page: 'dashboard',
+    page: 'userLogin',
     userLoggedInId: 1, // null is loggedOut
   },
 

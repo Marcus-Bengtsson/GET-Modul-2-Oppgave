@@ -4,17 +4,17 @@
     padding: 2rem;
 }
 
-.dashboard-main {
+.grid-main {
     grid-area: content;
     display: grid;
-    grid-template-areas: "menu information";
-    padding: 0 15rem;
-    gap: 1rem;
+    place-items: center;
 } 
 
-.dashboard-header {
-    grid-area: header;
-    display: inline-block;
+.grid-dashboard {
+    display: grid;
+    grid-template-areas: 'menu information';
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
 }
 
 .navMenu {

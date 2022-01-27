@@ -1,19 +1,19 @@
 function updateDashboardView () {
     return /*html*/`
-  <main class="dashboard-main">
-    <nav class="navMenu">
-        ${navbarCard()}
-        ${navbarCard()}
-        ${navbarCard()}
-        ${navbarCard()}
-    </nav>
-    <article class="information">
-      <h2>Informasjon</h2>
-      ${informationCard()}
-      ${informationCard()}
-      ${informationCard()}
-    </article>
-  </main>`;
+    <div class="grid-dashboard">
+      <nav class="navMenu">
+          ${navbarCard()}
+          ${navbarCard()}
+          ${navbarCard()}
+          ${navbarCard()}
+      </nav>
+      <article class="information">
+        <h2>Informasjon</h2>
+        ${informationCard()}
+        ${informationCard()}
+        ${informationCard()}
+      </article>
+    </div>`;
 }
 
 function navbarCard() {

@@ -1,6 +1,7 @@
 function updateSignUpView() {
   let html = '';
   html += /*html*/`
+  <div>
   <h1>Sign up</h1>
   <h2>Sign up to get an account</h2>
   <form name="login" onsubmit="handleSignupOnClick(); return false">
@@ -35,6 +36,7 @@ function updateSignUpView() {
   <button onclick="returnToLoginPage()">Return to login</button>
   ${doPasswordsMatch()}
   ${isEmailUnique()}
+  </div>
     `
   return html;
 }

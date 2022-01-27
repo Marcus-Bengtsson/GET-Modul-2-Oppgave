@@ -1,5 +1,6 @@
 function updateLoginView() {
     return /*html*/`
+    <div>
     <h1>Login side</h1>
     <h2>Login to Continue</h2>
     <form name="login" onsubmit="handleLoginOnClick(); return false">
@@ -15,7 +16,8 @@ function updateLoginView() {
     </form>
     <button onclick="oneClickLoginDev()">Dev login</button>
     <button onclick="redirectToSignUp()">Sign up</button>
-    ${isUserLoginCorrect()}
+      ${isUserLoginCorrect()}
+    </div>
     `
 }
 
