@@ -17,3 +17,13 @@ function getHighestIdFromArrayObj(input = []) {
     }
     return highestId;
 }
+
+function redirectToPage(page) {
+    model.app.page = page;
+    updateMainView();
+}
+
+function logout() {
+    model.app.userLoggedInId = null;
+    redirectToPage("userLogin");
+}

@@ -38,11 +38,6 @@ function getRoleFromUserId(id) {
     return null;
 }
 
-function redirectToPage(page) {
-    model.app.page = page;
-    updateMainView();
-}
-
 function getArticles() {
     // TODO: Dashboard inputs
     // return articles from inputIds

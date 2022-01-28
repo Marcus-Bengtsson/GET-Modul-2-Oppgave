@@ -1,0 +1,25 @@
+.material-icons {
+    color: hsl(0, 0%, 91%);
+    font-size: 64px;
+}
+
+.material-icons:hover {
+    color: lightblue;
+    cursor: pointer;
+}
+
+.navbar-main {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+    padding: 0rem 2rem;
+}
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+}

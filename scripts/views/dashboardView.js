@@ -2,10 +2,10 @@ function updateDashboardView () {
     return /*html*/`
     <div class="grid-dashboard">
       <nav class="navMenu" aria-label="cards">
-          ${navbarCard()}
-          ${navbarCard()}
-          ${navbarCard()}
-          ${navbarCard()}
+          ${navbarCardUser()}
+          ${navbarCard("Dine grupper", "Her er dine grupper")}
+          ${navbarCard("Undersøkelser", "Din neste undersøkelse er i morgen")}
+          ${navbarCard("Alle grupper (Admin)", "Alle grupper")}
       </nav>
       <article class="information">
         <h2>Informasjon</h2>
@@ -18,15 +18,26 @@ function updateDashboardView () {
     </div>`;
 }
 
-function navbarCard() {
+function navbarCardUser() {
   return /*html*/`
-    <button>
+    <button class="navbar-card">
       <img/>
       <div>
-          <h3>Hei, navn</h3>
-          <p>Beskrivelse</p>
+          <h3>Hei ${getUserWithId(model.app.userLoggedInId).firstName}!</h3>
+          <p>Velkommen til din side</p>
       </div>
   </button>`
+}
+
+function navbarCard(tittel, beskrivelse) {
+  return /*html*/`
+    <button class="navbar-card">
+      <img/>
+      <div>
+          <h3>${tittel}</h3>
+          <p>${beskrivelse}</p>
+      </div>
+    </button>`
 }
 
 function articleCards(){

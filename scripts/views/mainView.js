@@ -3,20 +3,18 @@ updateMainView();
 function updateMainView() {
   let dev = true;
   let html = '';
-  html += /*html*/`
-
-  `
-
+  let hasNavbar = true;
   let main = '';
-  
 
   const appPage = model.app.page;
   switch(appPage) {
     case 'userLogin': 
       main += updateLoginView();
+      hasNavbar = false;
       break;
     case 'userSignup': 
       main += updateSignUpView();
+      hasNavbar = false;
       break;
     case 'dashboard':
       main += updateDashboardView();
@@ -27,8 +25,9 @@ function updateMainView() {
   }
   html = `
   ${dev ? UpdateModelInfoView() : ''}
+
   <header class="grid-header">
-    <h1>${model.app.page}</h1>
+  ${hasNavbar ? navBar() : ''}
   </header>
   <main class="grid-main">
     ${main}
@@ -38,3 +37,4 @@ function updateMainView() {
   </footer>`
   document.getElementById('app').innerHTML = html;
 }
+
