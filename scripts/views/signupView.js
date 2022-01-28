@@ -7,14 +7,18 @@ function updateSignUpView() {
   <form name="login" onsubmit="handleSignupOnClick(); return false">
     <div class="input-items">
       <label>First name </label>
-      <input onchange="model.inputs.userSignup.firstName = this.value"
-       type="text" 
-       placeholder="First name" 
-       required>
+      <input
+        value="${model.inputs.userSignup.firstName}"
+        onchange="model.inputs.userSignup.firstName = this.value"
+        type="text" 
+        placeholder="First name" 
+        required>
     </div>
     <div class="input-items">
       <label>Last name </label>
-      <input onchange="model.inputs.userSignup.lastName = this.value"
+      <input 
+       value="${model.inputs.userSignup.lastName}"
+       onchange="model.inputs.userSignup.lastName = this.value"
        type="text" 
        placeholder="Last name" 
        required>

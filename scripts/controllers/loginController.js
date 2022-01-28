@@ -5,8 +5,11 @@
  */
 
 function handleLoginOnClick() {
-    const user = getUserByEmail(model.inputs.userLogin.email);
+    if (model.app.page != 'userLogin') {
+        return;
+    }
     
+    const user = getUserByEmail(model.inputs.userLogin.email);
     if(user === null || user?.password != model.inputs.userLogin.password) {
         model.inputs.userLogin.isCorrect = false;
         model.inputs.userLogin.password = "";
@@ -21,17 +24,17 @@ function handleLoginOnClick() {
     model.app.userLoggedInId = user.id;
     model.app.page = 'dashboard';
     updateMainView();
+    setDefaultLoginSignup();
 }
 
-/**
- * Dev login
- * @description Automatically logins on click instead of developers having to type in login details
- */
-function oneClickLoginDev() {
-    model.inputs.userLogin.email = 'ola@example.com';
-    model.inputs.userLogin.password = 'N0rdp@ssw0rd99_';
-    handleLoginOnClick();
+function setDefaultLoginSignup() {
+    model.inputs.userLogin = {
+        email: '',
+        password: '',
+        isCorrect: null,
+    }
 }
+
 
 function redirectToSignUp(){
     model.app.page = 'userSignup';
