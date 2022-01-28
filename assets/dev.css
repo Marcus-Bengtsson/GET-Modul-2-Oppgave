@@ -1,0 +1,12 @@
+.model-info {
+    position: absolute;
+    top: 3rem;
+    left: 1rem;;
+}
+
+.model-info > textarea {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    backdrop-filter: blur(4px);
+    font-size: 0.8rem;
+}

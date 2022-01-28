@@ -1,6 +1,7 @@
 updateMainView();
 
 function updateMainView() {
+  let dev = true;
   let html = '';
   html += /*html*/`
 
@@ -25,6 +26,7 @@ function updateMainView() {
       break;
   }
   html = `
+  ${dev ? UpdateModelInfoView() : ''}
   <header class="grid-header">
     <h1>${model.app.page}</h1>
   </header>

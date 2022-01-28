@@ -1,6 +1,5 @@
 function emailInputHTML(value, onChange, placeHolder = "type in email") {
     return `<input value="${value}" 
-    pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
     onchange="${onChange}" 
     type="email"
     placeholder="${placeHolder}"

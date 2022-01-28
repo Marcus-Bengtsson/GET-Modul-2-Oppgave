@@ -2,7 +2,7 @@ const model = {
   // app
   app: {
     page: 'userLogin',
-    userLoggedInId: 1, // null is loggedOut
+    userLoggedInId: null, // null is loggedOut
   },
 
   // input
