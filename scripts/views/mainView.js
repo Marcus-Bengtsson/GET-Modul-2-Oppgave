@@ -7,7 +7,6 @@ function updateMainView() {
   let main = '';
 
   const appPage = model.app.page;
-  console.log(appPage);
   let viewFunction = getUpdateViewFunction(appPage);
 
   if (viewFunction == undefined) {
@@ -24,8 +23,6 @@ function updateMainView() {
       hasNavbar = false;
       break;
   }
-
- 
 
   html = `
   ${dev ? UpdateModelInfoView() : ''}
@@ -44,7 +41,7 @@ function updateMainView() {
 
 function getUpdateViewFunction(appPage = '') {
   let name = `update${appPage}View`;
-  return window[`${name}`];
+  return window[name];
 }
 
 

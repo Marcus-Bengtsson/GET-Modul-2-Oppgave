@@ -1,7 +1,7 @@
 const model = {
   // app
   app: {
-    page: 'UserLogin',
+    page: 'GroupList',
     userLoggedInId: null, // null is loggedOut
   },
 

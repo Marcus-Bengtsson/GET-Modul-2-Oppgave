@@ -5,8 +5,8 @@ function navBar() {
         ${iconButtonHTML('logout', 'logout()')}
         ${iconRedirectButtonHTML('home', 'Dashboard')}
         ${iconHTML('notifications', 'notification-icon')}
-        ${iconRedirectButtonHTML('groups', 'groupList')}
-        ${iconRedirectButtonHTML('poll', 'surveyPage')} 
+        ${iconRedirectButtonHTML('groups', 'GroupList')}
+        ${iconRedirectButtonHTML('poll', 'SurveyPage')} 
     </nav>
     `
 }
