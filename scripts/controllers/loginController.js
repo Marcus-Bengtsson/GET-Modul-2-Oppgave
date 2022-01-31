@@ -9,7 +9,7 @@ function handleLoginOnClick() {
         return;
     }
     
-    const user = getUserByEmail(model.inputs.userLogin.email);
+    const user = getUserFromEmail(model.inputs.userLogin.email);
     if(user === null || user?.password != model.inputs.userLogin.password) {
         model.inputs.userLogin.isCorrect = false;
         model.inputs.userLogin.password = "";

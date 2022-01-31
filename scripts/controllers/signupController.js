@@ -68,7 +68,7 @@ function createNewUserFromSignup() {
  * @param {string} email 
  */
 function checkIfEmailUsed(email) {
-    if (getUserByEmail(email) != null ) model.inputs.userSignup.confirmEmail = false;
+    if (getUserFromEmail(email) != null ) model.inputs.userSignup.confirmEmail = false;
     else model.inputs.userSignup.confirmEmail = true;
 }
 

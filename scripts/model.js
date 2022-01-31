@@ -2,7 +2,7 @@ const model = {
   // app
   app: {
     page: 'GroupList',
-    userLoggedInId: null, // null is loggedOut
+    userLoggedInId: 1, // null is loggedOut
   },
 
   // input
@@ -114,7 +114,7 @@ const model = {
         intervals: 7,
         startDate: 1642580756,
         deadline: 3,
-        userIds: [0, 2],
+        userIds: [0, 1],
         managerIds: [0, 2],
       }
     ],

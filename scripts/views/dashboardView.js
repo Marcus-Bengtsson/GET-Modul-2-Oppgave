@@ -21,7 +21,7 @@ function navbarCardUser() {
     <button class="navbar-card">
       <img/>
       <div>
-          <h3>Hei ${getUserWithId(model.app.userLoggedInId).firstName}!</h3>
+          <h3>Hei ${getUserFromID(model.app.userLoggedInId).firstName}!</h3>
           <p>Velkommen til din side</p>
       </div>
   </button>`
