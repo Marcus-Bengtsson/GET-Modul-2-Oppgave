@@ -59,7 +59,8 @@ th {
 
 input[type=email],
 input[type=password],
-input[type=text] {
+input[type=text],
+input[type=date], select {
     max-width: 15rem;
 }
 
