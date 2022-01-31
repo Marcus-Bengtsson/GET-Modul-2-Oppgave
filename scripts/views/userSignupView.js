@@ -1,4 +1,4 @@
-function updateSignUpView() {
+function updateUserSignupView() {
   let html = '';
   html += /*html*/`
   <div>

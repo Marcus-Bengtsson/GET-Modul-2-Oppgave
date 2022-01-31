@@ -1,4 +1,4 @@
-function updateLoginView() {
+function updateUserLoginView() {
     return /*html*/`
     <div>
     <h1>Login side</h1>

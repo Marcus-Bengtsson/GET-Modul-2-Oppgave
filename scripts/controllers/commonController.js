@@ -25,5 +25,5 @@ function redirectToPage(page) {
 
 function logout() {
     model.app.userLoggedInId = null;
-    redirectToPage("userLogin");
+    redirectToPage("UserLogin");
 }

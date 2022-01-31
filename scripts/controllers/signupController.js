@@ -1,5 +1,5 @@
 function returnToLoginPage() {
-    model.app.page = 'userLogin';
+    model.app.page = 'UserLogin';
     updateMainView();
 }
 /**
@@ -7,7 +7,7 @@ function returnToLoginPage() {
  * @description Checks if email and password is ok, then adds new user if there's no error.
  */
 function handleSignupOnClick() {
-    if (model.app.page != 'userSignup') {
+    if (model.app.page != 'UserSignup') {
         return;
     }
 
@@ -22,7 +22,7 @@ function handleSignupOnClick() {
         return;
     }
     createNewUserFromSignup();
-    model.app.page = 'userLogin';
+    model.app.page = 'UserLogin';
     updateMainView();
     setDefaultSignupInput();
     return;
@@ -79,6 +79,6 @@ function checkIfEmailUsed(email) {
 function checkPasswords() {
     if (model.inputs.userSignup.password === model.inputs.userSignup.confirmPassword) {
         model.inputs.userSignup.confirmCreation = true;
-    }    
+    }
     else model.inputs.userSignup.confirmCreation = false;
 }

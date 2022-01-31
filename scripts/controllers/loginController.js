@@ -5,7 +5,7 @@
  */
 
 function handleLoginOnClick() {
-    if (model.app.page != 'userLogin') {
+    if (model.app.page != 'UserLogin') {
         return;
     }
     
@@ -22,7 +22,7 @@ function handleLoginOnClick() {
 
     model.inputs.userLogin.isCorrect = true;
     model.app.userLoggedInId = user.id;
-    model.app.page = 'dashboard';
+    model.app.page = 'Dashboard';
     updateMainView();
     setDefaultLoginSignup();
 }
@@ -37,6 +37,6 @@ function setDefaultLoginSignup() {
 
 
 function redirectToSignUp(){
-    model.app.page = 'userSignup';
+    model.app.page = 'UserSignup';
     updateMainView();
 }

@@ -10,9 +10,7 @@ function updateDashboardView () {
       <article class="information">
         <h2>Informasjon</h2>
         <div class="information-cards">
-          ${informationCard()}
-          ${informationCard()}
-          ${informationCard()}
+          ${articleCards()}
         </div>
       </article>
     </div>`;
@@ -60,6 +58,3 @@ function informationCard(articleObj = model.data.articles[0]){
     </div>
     </a>`
 }
-
-/*
- */

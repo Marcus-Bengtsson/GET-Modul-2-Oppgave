@@ -1,0 +1,4 @@
+function groupListView () {
+    return /*html*/`
+    `
+}

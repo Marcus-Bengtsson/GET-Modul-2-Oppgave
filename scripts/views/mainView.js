@@ -7,22 +7,26 @@ function updateMainView() {
   let main = '';
 
   const appPage = model.app.page;
+  console.log(appPage);
+  let viewFunction = getUpdateViewFunction(appPage);
+
+  if (viewFunction == undefined) {
+    main = `<h2>Error ${appPage} not found</h2>`
+  } else {
+    main = viewFunction();
+  }
+
   switch(appPage) {
-    case 'userLogin': 
-      main += updateLoginView();
+    case 'UserLogin':
       hasNavbar = false;
       break;
-    case 'userSignup': 
-      main += updateSignUpView();
+    case 'UserSignup': 
       hasNavbar = false;
-      break;
-    case 'dashboard':
-      main += updateDashboardView();
-      break;
-    default:
-      main += `Error ${appPage} not found`
       break;
   }
+
+ 
+
   html = `
   ${dev ? UpdateModelInfoView() : ''}
 
@@ -37,4 +41,10 @@ function updateMainView() {
   </footer>`
   document.getElementById('app').innerHTML = html;
 }
+
+function getUpdateViewFunction(appPage = '') {
+  let name = `update${appPage}View`;
+  return window[`${name}`];
+}
+
 

@@ -1,7 +1,7 @@
 const model = {
   // app
   app: {
-    page: 'userLogin',
+    page: 'UserLogin',
     userLoggedInId: null, // null is loggedOut
   },
 
@@ -144,21 +144,21 @@ const model = {
     articles: [
       {
         id: 0,
-        title: 'Overskrift',
+        title: 'Overskrift 1',
         description: 'Kort beskrivelse',
         imageURL: 'https://i.imgur.com/RvYL7wB.png',
         url: 'https://www.getacademy.no/',
       },
       {
         id: 1,
-        title: 'Overskrift',
+        title: 'Overskrift 2',
         description: 'Kort beskrivelse',
         imageURL: 'https://i.imgur.com/RvYL7wB.png',
         url: 'https://www.getacademy.no/',
       },
       {
         id: 2,
-        title: 'Overskrift',
+        title: 'Overskrift 3',
         description: 'Kort beskrivelse',
         imageURL: 'https://i.imgur.com/RvYL7wB.png',
         url: 'https://www.getacademy.no/',
