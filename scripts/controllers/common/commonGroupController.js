@@ -15,3 +15,12 @@ function getGroupsFromUserID(userId, managerAccess) {
   return groupList;
 }
 
+function getSurveysFromGroupId(groupId) {
+  let surveyList = [];
+  for(const survey of model.data.surveys) {
+    if(survey.groupId === groupId) {
+      surveyList.push(survey);
+    }
+  }
+  return surveyList;
+}

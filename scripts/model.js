@@ -112,16 +112,26 @@ const model = {
         name: 'Gruppe 1',
         description: 'Beskrivelse av gruppe 1',
         intervals: 7,
-        startDate: 1642580756,
+        startDate: "21/01/2022",
         deadline: 3,
         userIds: [0, 1],
-        managerIds: [0, 2],
-      }
+        managerIds: [0, 1],
+      },
+      {
+        id: 1,
+        name: 'Gruppe 2',
+        description: 'Beskrivelse av gruppe 2',
+        intervals: 14,
+        startDate: "23/01/2022",
+        deadline: 4,
+        userIds: [1, 3],
+        managerIds: [0, 1],
+      },
     ],
     surveys: [
       {
         id: 0,
-        groupId: 1,
+        groupId: 0,
         date: "01/05/2022",
         totalAnswers: 2,
         totalScores: [17, 23, 10, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
