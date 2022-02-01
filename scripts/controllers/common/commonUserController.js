@@ -17,6 +17,21 @@ function getUserFromEmail(email) {
 }
 
 /**
+ * Get users from Role Id
+ * @param {number} id 
+ * @returns list of users that has role id, if role doesn't exist it returns null
+ */
+function getUsersFromRoleId(id) {
+    let users = []
+    let foundRole = model.data.roles.find(role => role.id == id);
+    if (foundRole === undefined) return null;
+    for (const user of model.data.users) {
+        if(user.roleId === id) users.push(user);
+    }
+    return users;
+}
+
+/**
  * Get user id
  * @description returns user from id
  */

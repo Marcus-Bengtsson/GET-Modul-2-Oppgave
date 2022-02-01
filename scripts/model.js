@@ -99,6 +99,15 @@ const model = {
         password: 'N0rdp@ssw0rd99_',
         roleId: 2, // user
         avatarId: 1,
+      },
+      {
+        id: 2,
+        firstName: 'Test',
+        lastName: 'Test',
+        email: 'test@example.com',
+        password: 'N0rdp@ssw0rd99_',
+        roleId: 1, // user
+        avatarId: 1,
       }
     ],
     roles: [
