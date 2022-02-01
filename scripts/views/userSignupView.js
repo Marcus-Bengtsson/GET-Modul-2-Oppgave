@@ -37,7 +37,7 @@ function updateUserSignupView() {
     </div>
     <input type="submit" value="Sign up"/>
   </form>
-  <button onclick="redirectToPage("UserLogin")">Return to login</button>
+  <button onclick="redirectToPage('UserLogin')">Return to login</button>
   ${doPasswordsMatch()}
   ${isEmailUnique()}
   </div>

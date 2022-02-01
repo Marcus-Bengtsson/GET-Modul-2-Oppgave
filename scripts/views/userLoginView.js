@@ -14,7 +14,7 @@ function updateUserLoginView() {
       </div>
       <button type="submit">login</button>
     </form>
-    <button onclick="redirectToPage("UserSignup")">Sign up</button>
+    <button onclick="redirectToPage('UserSignup')">Sign up</button>
       ${isUserLoginCorrect()}
     </div>
     `
