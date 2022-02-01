@@ -28,7 +28,8 @@ function updateGroupNewView() {
       </div>
       <div class="input-items">
         <label>Beskrivelse av gruppen</label>
-        <textarea cols="30" rows="10"></textarea>
+        <textarea value="${model.inputs.groupNew.description}"
+        onchange="model.inputs.description = this.value" cols="30" rows="10"></textarea>
       </div>
       <div>
         <div class="input-items">
@@ -45,7 +46,8 @@ function updateGroupNewView() {
         </div>
         <div class="input-items">
           <label>Startdato</label>
-          <input type="date" placeholder="Velg Stardato" required />
+          <input 
+          onchange="model.inputs.startDate = this.value" type="date" placeholder="Velg Stardato" required />
         </div>
         <div class="input-items">
           <label>Svarfrits</label>
@@ -63,11 +65,13 @@ function updateGroupNewView() {
 
       <label>Send varsel</label>
       <div>
-        <input type="checkbox" id="notification1" checked />
+        <input
+        onchange="model.inputs.groupNew.newNotification = this.checked" type="checkbox" id="notification1" ${model.inputs.groupNew.newNotification ? 'checked' : ''}/>
         <label for="notification1">Ved ny undersøkelse</label>
       </div>
       <div>
-        <input type="checkbox" id="notification2" checked />
+        <input
+        onchange="model.inputs.groupNew.reminderNotification = this.checked" type="checkbox" id="notification2" ${model.inputs.groupNew.reminderNotification ? 'checked' : ''}/>
         <label for="notification2">Dagen før svarfrist</label>
       </div>
     </div>
@@ -77,32 +81,74 @@ function updateGroupNewView() {
         <div class="flex-down">
           <label>Managerliste</label>
           <div>
-            <select>
-              <option>Bruker 1</option>
-              <option>Bruker 2</option>
+            <select id="managerSelect">
+            ${managerOptionsHTML(true)}
             </select>
-            <button>+</button>
+            <button onclick="addManagerToList()">+</button>
           </div>
           <ul>
-            <li>Bruker</li>
+            ${managerListHTML()}
           </ul>
         </div>
 
         <div class="flex-down">
           <label>Deltakerliste</label>
           <div>
-            <select>
-              <option>Bruker 1</option>
-              <option>Bruker 2</option>
+            <select id="userSelect">
+            ${userOptionsHTML()}
             </select>
-            <button>+</button>
+            <button onclick="addUserToList()">+</button>
           </div>
           <ul>
-            <li>Gjertrud</li>
+            ${userListHTML()}
           </ul>
         </div>
       </div>
     </div>
   </div>
     `;
+}
+
+//
+
+
+
+function userListHTML() {
+  let listHTML = '';
+  for (const userId of model.inputs.groupNew.userIds) {
+    let user = getUserFromID(userId);
+    if(user == null) continue;
+    const userName = `${user.firstName} ${user.lastName}`
+    listHTML += `<li><div>${userName} <button onclick="alert(${user.id}s">Delete</button></div></li>`
+  }
+  return listHTML;
+}
+
+
+function managerListHTML() {
+  let listHTML = '';
+  for (const managerId of model.inputs.groupNew.managerIds) {
+    let manager = getUserFromID(managerId);
+    if(manager == null) continue;
+    const userName = `${manager.firstName} ${manager.lastName}`
+    listHTML += `<li><div>${userName} <button onclick="alert(${manager.id}s">Delete</button></div></li>`
+  }
+  return listHTML;
+}
+
+function userOptionsHTML() {
+  let optionsHTML = "";
+  for (const user of getOptionUsers()) {
+      optionsHTML += `<option value="${user.id}">${user.firstName} ${user.lastName}</option>`;
+  }
+  return optionsHTML;
+}
+
+
+function managerOptionsHTML() {
+  let optionsHTML = "";
+  for (const manager of getOptionManagers()) {
+      optionsHTML += `<option value="${manager.id}">${manager.firstName} ${manager.lastName}</option>`;
+  }
+  return optionsHTML;
 }
