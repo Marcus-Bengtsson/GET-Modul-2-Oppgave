@@ -1,7 +1,7 @@
 const model = {
   // app
   app: {
-    page: 'GroupNew',
+    page: 'GroupList',
     userLoggedInId: 1, // null is loggedOut
   },
 
@@ -125,6 +125,26 @@ const model = {
         startDate: "23/01/2022",
         deadline: 4,
         userIds: [1, 3],
+        managerIds: [0, 1],
+      },
+      {
+        id: 2,
+        name: 'Gruppe 3',
+        description: 'Beskrivelse av gruppe 3',
+        intervals: 14,
+        startDate: "11/01/2022",
+        deadline: 3,
+        userIds: [4, 3],
+        managerIds: [0, 1],
+      },
+      {
+        id: 4,
+        name: 'Gruppe 4',
+        description: 'Beskrivelse av gruppe 4',
+        intervals: 14,
+        startDate: "27/01/2022",
+        deadline: 4,
+        userIds: [1, 2],
         managerIds: [0, 1],
       },
     ],
