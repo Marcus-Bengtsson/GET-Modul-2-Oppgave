@@ -34,9 +34,3 @@ function setDefaultLoginSignup() {
         isCorrect: null,
     }
 }
-
-
-function redirectToSignUp(){
-    model.app.page = 'UserSignup';
-    updateMainView();
-}

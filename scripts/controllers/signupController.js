@@ -1,7 +1,3 @@
-function returnToLoginPage() {
-    model.app.page = 'UserLogin';
-    updateMainView();
-}
 /**
  * Sign up
  * @description Checks if email and password is ok, then adds new user if there's no error.
