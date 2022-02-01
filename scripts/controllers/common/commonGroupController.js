@@ -15,6 +15,9 @@ function getGroupsFromUserID(userId, managerAccess) {
   return groupList;
 }
 
+/**
+ * @description Returns an array of all the surveys taken by a group, filtered by group IDs
+ */
 function getSurveysFromGroupId(groupId) {
   let surveyList = [];
   for(const survey of model.data.surveys) {

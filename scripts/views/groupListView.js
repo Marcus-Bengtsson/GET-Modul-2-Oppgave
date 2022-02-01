@@ -10,7 +10,7 @@ function updateGroupListView () {
 <table>
     <thead>
         <tr>
-        <th><input type="checkbox" name="" id=""></th>
+        <th><input onchange="checkAllBox(this.checked)" type="checkbox" ${model.inputs.groupList.checkedAll ? "checked" : ""}></th>
         <th>Navn</th>
         <th>Tidsintervall</th>
         <th>Opprettelsesdato</th>
@@ -22,8 +22,9 @@ function updateGroupListView () {
     for(const group of getGroupsFromUserID(model.app.userLoggedInId, true)) {
         html += `
         <tr>
-            <td><input onchange="editMarkedGroups(this.checked, ${group.id})" type="checkbox" name="" id=""></td>
-            <td>${group.name}</td>
+            <td><input onchange="editMarkedGroups(this.checked, ${group.id})" type="checkbox" 
+            ${model.inputs.groupList.markedGroupIds.includes(group.id) ? "checked" : ""}></td>
+            <td onclick="redirectToPage('GroupSite_${group.id}')">${group.name}</td>
             <td>${group.intervals}</td>
             <td>${group.startDate}</td>
             <td>${getSurveysFromGroupId(group.id).length}</td>
