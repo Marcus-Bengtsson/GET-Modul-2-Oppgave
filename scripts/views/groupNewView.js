@@ -18,7 +18,7 @@ function updateGroupNewView() {
       flex-direction: column;
       width: 30%;
     }
-  </style>    
+  </style>  
   <div class="group-new">
     <div class="right">
       <h1>Ny Gruppe</h1>
@@ -28,8 +28,8 @@ function updateGroupNewView() {
       </div>
       <div class="input-items">
         <label>Beskrivelse av gruppen</label>
-        <textarea value="${model.inputs.groupNew.description}"
-        onchange="model.inputs.description = this.value" cols="30" rows="10"></textarea>
+        <textarea
+        onchange="model.inputs.groupNew.description = this.value" cols="30" rows="10">${model.inputs.groupNew.description}</textarea>
       </div>
       <div>
         <div class="input-items">
@@ -82,12 +82,12 @@ function updateGroupNewView() {
           <label>Managerliste</label>
           <div>
             <select id="managerSelect">
-            ${managerOptionsHTML(true)}
+            ${generateUserOptionList(getUsersFromRoleId(1))}
             </select>
             <button onclick="addManagerToList()">+</button>
           </div>
           <ul>
-            ${managerListHTML()}
+            ${generateUserList(model.inputs.groupNew.managerIds)}
           </ul>
         </div>
 
@@ -95,12 +95,12 @@ function updateGroupNewView() {
           <label>Deltakerliste</label>
           <div>
             <select id="userSelect">
-            ${userOptionsHTML()}
+            ${generateUserOptionList(model.data.users)}
             </select>
             <button onclick="addUserToList()">+</button>
           </div>
           <ul>
-            ${userListHTML()}
+            ${generateUserList(model.inputs.groupNew.userIds)}
           </ul>
         </div>
       </div>
@@ -109,46 +109,29 @@ function updateGroupNewView() {
     `;
 }
 
-//
 
-
-
-function userListHTML() {
-  let listHTML = '';
-  for (const userId of model.inputs.groupNew.userIds) {
-    let user = getUserFromID(userId);
-    if(user == null) continue;
-    const userName = `${user.firstName} ${user.lastName}`
-    listHTML += `<li><div>${userName} <button onclick="alert(${user.id}s">Delete</button></div></li>`
+function generateUserList(userIdList) {
+  let optionList = ''
+  for (const userId of userIdList) {
+    const user = getUserFromID(userId);
+    optionList += /*html*/`
+      <li>
+        <div>
+          <p>${user.firstName} ${user.lastName}</p>
+          <button onclick="alert(${user.id})">Delete</button>
+        </div>
+      </li>`
   }
-  return listHTML;
+  return optionList;
 }
 
-
-function managerListHTML() {
-  let listHTML = '';
-  for (const managerId of model.inputs.groupNew.managerIds) {
-    let manager = getUserFromID(managerId);
-    if(manager == null) continue;
-    const userName = `${manager.firstName} ${manager.lastName}`
-    listHTML += `<li><div>${userName} <button onclick="alert(${manager.id}s">Delete</button></div></li>`
+function generateUserOptionList(userList) {
+  let optionList = ''
+  for (const user of userList) {
+    optionList += /*html*/`
+      <option value="${user.id}">
+      ${user.firstName} ${user.lastName}
+      </option>`
   }
-  return listHTML;
-}
-
-function userOptionsHTML() {
-  let optionsHTML = "";
-  for (const user of getOptionUsers()) {
-      optionsHTML += `<option value="${user.id}">${user.firstName} ${user.lastName}</option>`;
-  }
-  return optionsHTML;
-}
-
-
-function managerOptionsHTML() {
-  let optionsHTML = "";
-  for (const manager of getOptionManagers()) {
-      optionsHTML += `<option value="${manager.id}">${manager.firstName} ${manager.lastName}</option>`;
-  }
-  return optionsHTML;
+  return optionList;
 }
