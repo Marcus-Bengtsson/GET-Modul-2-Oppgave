@@ -60,7 +60,8 @@ th {
 input[type=email],
 input[type=password],
 input[type=text],
-input[type=date], select {
+input[type=date],
+input[type=number], select {
     max-width: 15rem;
 }
 
@@ -71,5 +72,26 @@ input[type=date], select {
     margin: 0.5rem 0;
 }
 
+button, input[type=submit] {
+    border: none;
+    font-size: 1rem;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    background-color: white;
+    margin: 1rem 0rem;
+}
+
+button:hover, input[type=submit]:hover, select:hover {
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+select {
+    border: none;
+    font-size: 1rem;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    background-color: white;
+}
 
 

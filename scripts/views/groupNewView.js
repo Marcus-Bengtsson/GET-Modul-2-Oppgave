@@ -1,30 +1,17 @@
 function updateGroupNewView() {
   return /*html*/ `
-    <style>
-    .group-new {
-      display: grid;
-      grid-template-columns: auto auto;
-      padding: 1rem;
-      color: hsl(0, 0%, 90%);
-      width: 70%;
-    }
-
-    .flex-right {
-      display: flex;
-    }
-
-    .flex-down {
-      display: flex;
-      flex-direction: column;
-      width: 30%;
-    }
-  </style>  
   <div class="group-new">
     <div class="right">
       <h1>Ny Gruppe</h1>
       <div class="input-items">
         <label>Lag ny gruppe</label>
-        <input type="text" placeholder="Skriv gruppe navn.." required />
+        <input 
+          onchange="model.inputs.groupNew.name = this.value"
+          value="${model.inputs.groupNew.name}"
+          type="text"
+          placeholder="Skriv gruppenavn.." 
+          required />
+          ${checkConfirmName()}
       </div>
       <div class="input-items">
         <label>Beskrivelse av gruppen</label>
@@ -33,33 +20,28 @@ function updateGroupNewView() {
       </div>
       <div>
         <div class="input-items">
-          <label>Tidsintervall</label>
-          <select>
-              <option value="">1 uker</option>
-              <option value="">2 uker</option>
-              <option value="">3 uker</option>
-              <option value="">4 uker</option>
-              <option value="">5 uker</option>
-              <option value="">6 uker</option>
-              <option value="">7 uker</option>
-          </select>
+          <label>Tidsintervall (dager)</label>
+          <input
+            value="${model.inputs.groupNew.timeInterval}"
+            onchange="model.inputs.groupNew.timeInterval = parseInt(this.value)"
+            type="number" 
+            required/>
         </div>
         <div class="input-items">
           <label>Startdato</label>
-          <input 
-          onchange="model.inputs.startDate = this.value" type="date" placeholder="Velg Stardato" required />
+          <input
+            value="${model.inputs.groupNew.startDate}"
+            onchange="model.inputs.groupNew.startDate = this.value"
+            
+            type="date" 
+            placeholder="Velg Stardato" required />
         </div>
         <div class="input-items">
-          <label>Svarfrits</label>
-          <select>
-            <option value="">1 dager</option>
-            <option value="">2 dager</option>
-            <option value="">3 dager</option>
-            <option value="">4 dager</option>
-            <option value="">5 dager</option>
-            <option value="">6 dager</option>
-            <option value="">7 dager</option>
-          </select>
+          <label>Svarfrist (dager)</label>
+          <input
+          value="${model.inputs.groupNew.deadline}"
+          onchange="model.inputs.groupNew.deadline = parseInt(this.value)"
+          type="number"  required />
         </div>
       </div>
 
@@ -76,7 +58,7 @@ function updateGroupNewView() {
       </div>
     </div>
     <div class="left">
-      <button>Fullfør gruppen</button>
+      <button onclick="createGroupFromInputs()">Fullfør gruppen</button>
       <div class="flex-right">
         <div class="flex-down">
           <label>Managerliste</label>
@@ -115,10 +97,10 @@ function generateUserList(userIdList) {
   for (const userId of userIdList) {
     const user = getUserFromID(userId);
     optionList += /*html*/`
-      <li>
-        <div>
+      <li class="user-list-item">
+        <div class="user-list">
           <p>${user.firstName} ${user.lastName}</p>
-          <button onclick="alert(${user.id})">Delete</button>
+          <button onclick="removeUserFromList(${user.id})">X</button>
         </div>
       </li>`
   }
@@ -134,4 +116,12 @@ function generateUserOptionList(userList) {
       </option>`
   }
   return optionList;
+}
+
+function checkConfirmName() {
+  const isCorrect = model.inputs.groupNew.confirmName;
+  if (isCorrect === false) {
+    return '<p style="color: red;">Gruppenavn er opptatt</p>'
+  }
+  return '';
 }

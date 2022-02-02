@@ -26,15 +26,16 @@ const model = {
     groupNew: { 
       name: '',
       description: '',
-      timeInterval: null,
-      startDate: null,
-      deadline: null,
+      timeInterval: 0,
+      startDate: new Date().toISOString().split('T')[0],
+      deadline: 0,
       newNotification: true,
       reminderNotification: true,
       managerTextbox: '',
       managerIds: [],
       userTextbox: '',
       userIds: [],
+      confirmName: null,
       confirmCreation: false,
     },
     surveyPage: {
@@ -97,7 +98,7 @@ const model = {
         lastName: 'Nordmann',
         email: 'ola@example.com',
         password: 'N0rdp@ssw0rd99_',
-        roleId: 2, // user
+        roleId: 1, // user
         avatarId: 1,
       },
       {
@@ -106,7 +107,7 @@ const model = {
         lastName: 'Test',
         email: 'test@example.com',
         password: 'N0rdp@ssw0rd99_',
-        roleId: 1, // user
+        roleId: 2, // user
         avatarId: 1,
       }
     ],
