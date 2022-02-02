@@ -16,3 +16,7 @@ function logout() {
     model.app.userLoggedInId = null;
     redirectToPage("UserLogin");
 }
+
+function toStringDate(date) {
+    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+}

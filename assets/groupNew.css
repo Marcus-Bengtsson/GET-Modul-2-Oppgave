@@ -1,0 +1,37 @@
+.group-new {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 1rem;
+  color: hsl(0, 0%, 90%);
+  width: 100%;
+  padding: 0rem 20rem;
+}
+
+.flex-right {
+  display: flex;
+}
+
+.flex-down {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+textarea {
+    width: 70%;
+}
+
+.user-list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+ul {
+    padding: 0px;
+}
+
+.user-list-item {
+    list-style-type: none;
+    margin: 0px;
+}
