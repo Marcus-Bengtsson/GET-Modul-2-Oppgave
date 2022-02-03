@@ -1,93 +1,80 @@
 function updateGroupNewView() {
+  const inputObjects = {
+    name: {
+      labelText: 'Gruppenavn',
+      value: model.inputs.groupNew.name,
+      onChange: 'model.inputs.groupNew.name = this.value',
+      placeholderText: 'Skriv gruppenavn..',
+      isRequired: true,
+    },
+    newNotification: {
+      labelText: 'Ved ny undersøkelse',
+      onChange: 'model.inputs.groupNew.newNotification = this.checked',
+      isChecked: model.inputs.groupNew.newNotification,
+    },
+    reminderNotification:{
+      labelText: 'Dagen før svarfrist',
+      onChange: 'model.inputs.groupNew.reminderNotification = this.checked',
+      isChecked: model.inputs.groupNew.reminderNotification,
+    }, 
+    description: {
+      labelText: 'Beskrivelse av gruppen',
+      value: model.inputs.groupNew.description,
+      onChange: 'model.inputs.groupNew.description = this.value',
+      columns: 45,
+      rows: 10,
+    },
+    //addManagerToList()
+    managerDropdown: {
+      labelText: 'Managerliste',
+      onChange: 'model.inputs.groupNew.managerDropdown = this.value',
+      value: model.inputs.groupNew.managerDropdown,
+      content: generateUserOptionList(getUsersFromRoleId(1)),
+      buttonOnClick: "addManagerToList()",
+      buttonText: "+",
+    },
+    //addUserToList()
+    userDropdown: {
+      labelText: 'Brukerliste',
+      onChange: 'model.inputs.groupNew.userDropdown = this.value',
+      value: model.inputs.groupNew.userDropdown,
+      content: generateUserOptionList(model.data.users),
+      buttonOnClick: "addUserToList()",
+      buttonText: "+",
+    },
+  }
   return /*html*/ `
-  <div class="group-new">
-    <div class="right">
-      <h1>Ny Gruppe</h1>
-      <div class="input-items">
-        <label>Lag ny gruppe</label>
-        <input 
-          onchange="model.inputs.groupNew.name = this.value"
-          value="${model.inputs.groupNew.name}"
-          type="text"
-          placeholder="Skriv gruppenavn.." 
-          required />
-          ${checkConfirmName()}
-      </div>
-      <div class="input-items">
-        <label>Beskrivelse av gruppen</label>
-        <textarea
-        onchange="model.inputs.groupNew.description = this.value" cols="30" rows="10">${model.inputs.groupNew.description}</textarea>
-      </div>
-      <div>
-        <div class="input-items">
-          <label>Tidsintervall (dager)</label>
-          <input
-            value="${model.inputs.groupNew.timeInterval}"
-            onchange="model.inputs.groupNew.timeInterval = parseInt(this.value)"
-            type="number" 
-            required/>
-        </div>
-        <div class="input-items">
-          <label>Startdato</label>
-          <input
-            value="${model.inputs.groupNew.startDate}"
-            onchange="model.inputs.groupNew.startDate = this.value"
-            
-            type="date" 
-            placeholder="Velg Stardato" required />
-        </div>
-        <div class="input-items">
-          <label>Svarfrist (dager)</label>
-          <input
-          value="${model.inputs.groupNew.deadline}"
-          onchange="model.inputs.groupNew.deadline = parseInt(this.value)"
-          type="number"  required />
-        </div>
-      </div>
 
-      <label>Send varsel</label>
-      <div>
-        <input
-        onchange="model.inputs.groupNew.newNotification = this.checked" type="checkbox" id="notification1" ${model.inputs.groupNew.newNotification ? 'checked' : ''}/>
-        <label for="notification1">Ved ny undersøkelse</label>
-      </div>
-      <div>
-        <input
-        onchange="model.inputs.groupNew.reminderNotification = this.checked" type="checkbox" id="notification2" ${model.inputs.groupNew.reminderNotification ? 'checked' : ''}/>
-        <label for="notification2">Dagen før svarfrist</label>
-      </div>
-    </div>
-    <div class="left">
-      <button onclick="createGroupFromInputs()">Fullfør gruppen</button>
-      <div class="flex-right">
-        <div class="flex-down">
-          <label>Managerliste</label>
+    <div class="group-new">
+      <section>
+      <form onsubmit="return false">
+          <h1>Ny gruppe</h1>
+          ${inputTextWithLabelHTML(inputObjects.name)}
+          ${checkConfirmName()}
+          ${textAreaWithLabelHTML(inputObjects.description)}
           <div>
-            <select id="managerSelect">
-            ${generateUserOptionList(getUsersFromRoleId(1))}
-            </select>
-            <button onclick="addManagerToList()">+</button>
+            <label>Varsler</label>
+            ${inputCheckboxWithLabelHTML(inputObjects.newNotification)}
+            ${inputCheckboxWithLabelHTML(inputObjects.reminderNotification)}
           </div>
+      </form>
+      </section>
+      <section class="section-2">
+        <div>
+          ${selectWithLabelHTML(inputObjects.managerDropdown)}
           <ul>
             ${generateUserList(model.inputs.groupNew.managerIds)}
           </ul>
         </div>
-
-        <div class="flex-down">
-          <label>Deltakerliste</label>
-          <div>
-            <select id="userSelect">
-            ${generateUserOptionList(model.data.users)}
-            </select>
-            <button onclick="addUserToList()">+</button>
-          </div>
+        <div>
+          ${selectWithLabelHTML(inputObjects.userDropdown)}
           <ul>
-            ${generateUserList(model.inputs.groupNew.userIds)}
-          </ul>
+          ${generateUserList(model.inputs.groupNew.userIds)}
+        </ul>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
+    </form>
+
     `;
 }
 
