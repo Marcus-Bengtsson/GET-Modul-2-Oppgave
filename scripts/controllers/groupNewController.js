@@ -14,20 +14,16 @@ function isUserInList(id) {
 }
 
 function addUserToList() {
-    let select = document.getElementById('userSelect');
-    let userId = parseInt(select.value);
-
-    if (isUserInList(userId) === false) {
+    let userId = parseInt(model.inputs.groupNew.userDropdown);
+    if (isUserInList(userId) === false && userId > -1) {
         model.inputs.groupNew.userIds.push(userId);
         updateMainView();
     }
 }
 
 function addManagerToList() {
-    let select = document.getElementById('managerSelect');
-    let userId = parseInt(select.value);
-
-    if (isUserInList(userId) === false) {
+    let userId = parseInt(model.inputs.groupNew.managerDropdown);
+    if (isUserInList(userId) === false && userId > -1) {
         model.inputs.groupNew.managerIds.push(userId);
         updateMainView();
     }

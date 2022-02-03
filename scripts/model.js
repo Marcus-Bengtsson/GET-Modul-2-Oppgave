@@ -1,7 +1,7 @@
 const model = {
   // app
   app: {
-    page: 'GroupList',
+    page: 'GroupNew',
     userLoggedInId: 1, // null is loggedOut
   },
 
@@ -31,9 +31,9 @@ const model = {
       deadline: 0,
       newNotification: true,
       reminderNotification: true,
-      managerTextbox: '',
+      managerDropdown: '',
       managerIds: [],
-      userTextbox: '',
+      userDropdown: '',
       userIds: [],
       confirmName: null,
       confirmCreation: false,
