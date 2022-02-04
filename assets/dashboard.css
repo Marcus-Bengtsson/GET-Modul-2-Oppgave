@@ -56,6 +56,7 @@
     background-color: white;
     border: none;
     border-radius: 0.25rem;
+    margin: 0;
 }
 
 .navbar-card:hover {
