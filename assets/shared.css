@@ -81,7 +81,7 @@ button, input[type=submit] {
     margin: 1rem 0rem;
 }
 
-button:hover, input[type=submit]:hover, select:hover {
+button:hover, input[type=submit]:hover {
     cursor: pointer;
     background-color: lightblue;
 }
@@ -92,6 +92,7 @@ select {
     padding: 0.25rem 1rem;
     border-radius: 0.25rem;
     background-color: white;
+    cursor: pointer;
 }
 
 

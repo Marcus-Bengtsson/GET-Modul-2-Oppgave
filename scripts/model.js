@@ -1,8 +1,8 @@
 const model = {
   // app
   app: {
-    page: 'GroupNew',
-    userLoggedInId: 1, // null is loggedOut
+    page: 'UserLogin',
+    userLoggedInId: null, // null is loggedOut
   },
 
   // input
@@ -85,9 +85,9 @@ const model = {
     users: [
       {
         id: 0,
-        firstName: 'Lillie',
-        lastName: 'Rugtveit',
-        email: 'lillie@example.com',
+        firstName: 'Nora',
+        lastName: 'Holm',
+        email: 'nora@example.com',
         password: 'N0tS4f3Pass_',
         roleId: 2, // user
         avatarId: 0,
@@ -125,7 +125,7 @@ const model = {
         startDate: "21/01/2022",
         deadline: 3,
         userIds: [0, 1],
-        managerIds: [0, 1],
+        managerIds: [0, 1, 3],
       },
       {
         id: 1,
@@ -135,7 +135,7 @@ const model = {
         startDate: "23/01/2022",
         deadline: 4,
         userIds: [1, 3],
-        managerIds: [0, 1],
+        managerIds: [0, 1, 3 ],
       },
       {
         id: 2,
@@ -145,7 +145,7 @@ const model = {
         startDate: "11/01/2022",
         deadline: 3,
         userIds: [4, 3],
-        managerIds: [0, 1],
+        managerIds: [0, 1, 3],
       },
       {
         id: 4,
@@ -155,7 +155,7 @@ const model = {
         startDate: "27/01/2022",
         deadline: 4,
         userIds: [1, 2],
-        managerIds: [0, 1],
+        managerIds: [0, 1, 3],
       },
     ],
     surveys: [

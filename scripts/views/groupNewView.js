@@ -1,8 +1,9 @@
 function updateGroupNewView() {
-  const inputObjects = {
+  const groupNew = model.inputs.groupNew;
+  const groupNewViewInputs = {
     name: {
       labelText: 'Gruppenavn',
-      value: model.inputs.groupNew.name,
+      value:  groupNew.name,
       onChange: 'model.inputs.groupNew.name = this.value',
       placeholderText: 'Skriv gruppenavn..',
       isRequired: true,
@@ -10,64 +11,88 @@ function updateGroupNewView() {
     newNotification: {
       labelText: 'Ved ny undersøkelse',
       onChange: 'model.inputs.groupNew.newNotification = this.checked',
-      isChecked: model.inputs.groupNew.newNotification,
+      isChecked: groupNew.newNotification,
     },
     reminderNotification:{
       labelText: 'Dagen før svarfrist',
       onChange: 'model.inputs.groupNew.reminderNotification = this.checked',
-      isChecked: model.inputs.groupNew.reminderNotification,
+      isChecked: groupNew.reminderNotification,
     }, 
     description: {
       labelText: 'Beskrivelse av gruppen',
-      value: model.inputs.groupNew.description,
+      value: groupNew.description,
       onChange: 'model.inputs.groupNew.description = this.value',
       columns: 45,
       rows: 10,
     },
-    //addManagerToList()
     managerDropdown: {
       labelText: 'Managerliste',
       onChange: 'model.inputs.groupNew.managerDropdown = this.value',
-      value: model.inputs.groupNew.managerDropdown,
+      value: groupNew.managerDropdown,
       content: generateUserOptionList(getUsersFromRoleId(1)),
       buttonOnClick: "addManagerToList()",
       buttonText: "+",
     },
-    //addUserToList()
     userDropdown: {
       labelText: 'Brukerliste',
       onChange: 'model.inputs.groupNew.userDropdown = this.value',
-      value: model.inputs.groupNew.userDropdown,
+      value: groupNew.userDropdown,
       content: generateUserOptionList(model.data.users),
       buttonOnClick: "addUserToList()",
       buttonText: "+",
     },
+    startDate: {
+      labelText: 'Startdato',
+      value: groupNew.startDate,
+      onchange: 'model.inputs.groupNew.startDate = this.value',
+      placeholderText: 'Velg startdato',
+      isRequired: true,
+    },
+    timeInterval: {
+      labelText: 'Tidsinterval (dager)',
+      value: groupNew.timeInterval,
+      onChange: 'model.inputs.groupNew.timeInterval = parseInt(this.value)',
+      placeholderText: 'Velg tidsinterval',
+      isRequired: true,
+    },
+    deadline: {
+      labelText: 'Svarfrist (dager)',
+      value: groupNew.deadline,
+      onChange: 'model.inputs.groupNew.deadline = parseInt(this.value)',
+      placeholderText: 'Velg svarfrist',
+      isRequired: true,
+    },
   }
   return /*html*/ `
-
     <div class="group-new">
       <section>
-      <form onsubmit="return false">
+      <form onsubmit="createGroupFromInputs(); return false">
           <h1>Ny gruppe</h1>
-          ${inputTextWithLabelHTML(inputObjects.name)}
-          ${checkConfirmName()}
-          ${textAreaWithLabelHTML(inputObjects.description)}
+          ${inputTextWithLabelHTML(groupNewViewInputs.name)}
+          ${groupNew.confirmName === false ? '<p style="color: red;">Gruppenavn er opptatt</p>' : ''}
+          ${textAreaWithLabelHTML(groupNewViewInputs.description)}
+          <div class="horizontal-flex">
+            ${inputNumberWithLabelHTML(groupNewViewInputs.timeInterval)}
+            ${inputDateWithLabelHTML(groupNewViewInputs.startDate)}
+            ${inputNumberWithLabelHTML(groupNewViewInputs.deadline)}
+          </div>
           <div>
             <label>Varsler</label>
-            ${inputCheckboxWithLabelHTML(inputObjects.newNotification)}
-            ${inputCheckboxWithLabelHTML(inputObjects.reminderNotification)}
+            ${inputCheckboxWithLabelHTML(groupNewViewInputs.newNotification)}
+            ${inputCheckboxWithLabelHTML(groupNewViewInputs.reminderNotification)}
           </div>
+          <button>Fullfør gruppe</button>
       </form>
       </section>
       <section class="section-2">
         <div>
-          ${selectWithLabelHTML(inputObjects.managerDropdown)}
+          ${selectWithLabelHTML(groupNewViewInputs.managerDropdown)}
           <ul>
             ${generateUserList(model.inputs.groupNew.managerIds)}
           </ul>
         </div>
         <div>
-          ${selectWithLabelHTML(inputObjects.userDropdown)}
+          ${selectWithLabelHTML(groupNewViewInputs.userDropdown)}
           <ul>
           ${generateUserList(model.inputs.groupNew.userIds)}
         </ul>
@@ -103,12 +128,4 @@ function generateUserOptionList(userList) {
       </option>`
   }
   return optionList;
-}
-
-function checkConfirmName() {
-  const isCorrect = model.inputs.groupNew.confirmName;
-  if (isCorrect === false) {
-    return '<p style="color: red;">Gruppenavn er opptatt</p>'
-  }
-  return '';
 }

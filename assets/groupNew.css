@@ -40,3 +40,8 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.horizontal-flex {
+  display: flex;
+  gap: 1rem;
+}
