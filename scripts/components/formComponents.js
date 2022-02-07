@@ -1,17 +1,3 @@
-function emailInputHTML(value, onChange, placeholder = "type in email") {
-  return `
-    <input 
-    value="${value}" 
-    onchange="${onChange}" 
-    type="email"
-    placeholder="${placeholder}"
-    required>`;
-}
-
-function passwordInputHTML(params) {
-  return ''
-}
-
 /**
  * Input password component
  * @param {{labelText: string, savePass: boolean, onChange: string, placeholderText: string, minLength: number}} inputObj
