@@ -33,6 +33,10 @@ h3 {
     margin: 0;
 }
 
+h4 {
+    margin: 0;
+}
+
 label {
     color: hsl(0, 0%, 90%);
     font-weight: 600;

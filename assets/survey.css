@@ -1,0 +1,62 @@
+.description-titles {
+  display: flex;
+  gap: 1rem;
+}
+
+.survey-header {
+  color: hsl(0, 0%, 94%);
+  display: flex;
+  width: 65rem;
+  gap: auto;
+  justify-content: space-between;
+}
+
+.answerOne {
+  opacity: 0.6;
+  font-weight: 400;
+}
+.answerTwo {
+  opacity: 0.8;
+  font-weight: 400;
+}
+.answerThree {
+  font-weight: 400;
+}
+.answerFour {
+  opacity: 0.8;
+  font-weight: 400;
+}
+.answerFive {
+  opacity: 0.6;
+  font-weight: 400;
+}
+.survey-question {
+  color: hsl(0, 0%, 94%);
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(36, 36, 36);
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+}
+.survey-fields {
+  border: none;
+  display: flex;
+  gap: 4.7rem;
+  align-items: center;
+}
+.survey-questions {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.survey-text {
+    max-width: 30rem;
+}
+
+.survey-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
