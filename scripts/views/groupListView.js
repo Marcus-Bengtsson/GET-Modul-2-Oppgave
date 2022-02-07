@@ -24,7 +24,7 @@ function updateGroupListView () {
         <tr>
             <td><input onchange="editMarkedGroups(this.checked, ${group.id})" type="checkbox" 
             ${model.inputs.groupList.markedGroupIds.includes(group.id) ? "checked" : ""}></td>
-            <td onclick="redirectToPage('GroupSite_${group.id}')">${group.name}</td>
+            <td onclick="setGroupSiteId(${group.id}); redirectToPage('GroupSite'); ">${group.name}</td>
             <td>${group.intervals}</td>
             <td>${group.startDate}</td>
             <td>${getSurveysFromGroupId(group.id).length}</td>
@@ -38,3 +38,6 @@ function updateGroupListView () {
     return html;
 }
 
+function setGroupSiteId(groupId) {
+    model.inputs.groupSite.groupId = groupId;
+}

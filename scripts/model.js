@@ -1,7 +1,8 @@
+
 const model = {
   // app
   app: {
-    page: 'UserLogin',
+    page: 'GroupSite',
     userLoggedInId: null, // null is loggedOut
   },
 
@@ -134,7 +135,7 @@ const model = {
         intervals: 14,
         startDate: "23/01/2022",
         deadline: 4,
-        userIds: [1, 3],
+        userIds: [1, 2],
         managerIds: [0, 1, 3 ],
       },
       {
@@ -144,7 +145,7 @@ const model = {
         intervals: 14,
         startDate: "11/01/2022",
         deadline: 3,
-        userIds: [4, 3],
+        userIds: [0, 2],
         managerIds: [0, 1, 3],
       },
       {

@@ -20,10 +20,21 @@ function getGroupsFromUserID(userId, managerAccess) {
  */
 function getSurveysFromGroupId(groupId) {
   let surveyList = [];
-  for(const survey of model.data.surveys) {
-    if(survey.groupId === groupId) {
+  for (const survey of model.data.surveys) {
+    if (survey.groupId === groupId) {
       surveyList.push(survey);
     }
   }
   return surveyList;
+}
+
+function getGroupFromGroupId(groupId) {
+  let returnGroup = {};
+  for (const group of model.data.groups) {
+    if (group.id === groupId) {
+      returnGroup = group;
+      break;
+    }
+  }
+  return returnGroup;
 }
