@@ -37,6 +37,10 @@ function updateMainView() {
 
   </footer>`
   document.getElementById('app').innerHTML = html;
+  if (appPage == 'GroupSite') {
+    new Chart('myDonut', donutChart);
+    new Chart('lineChart', lineChart); 
+  }
 }
 
 function getUpdateViewFunction(appPage = '') {
