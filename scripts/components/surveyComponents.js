@@ -5,19 +5,21 @@ function surveyQuestionCardHTML(inputObj) {
     <article class="survey-question">
       <p class="survey-text">${inputObj.questionText}</p>
       <fieldset 
-        id="${inputObj.fieldSetId}" 
-        class="survey-fields"
-        onchange="${inputObj.onChange}" 
-        value="${inputObj.value}">
-        <input for="${inputObj.fieldSetId}" type="radio" name="${inputObj.radioName}" value="1">
-        <input for="${inputObj.fieldSetId}" type="radio" name="${inputObj.radioName}" value="2">
-        <input for="${inputObj.fieldSetId}" type="radio" name="${inputObj.radioName}" value="3">
-        <input for="${inputObj.fieldSetId}" type="radio" name="${inputObj.radioName}" value="4">
-        <input for="${inputObj.fieldSetId}" type="radio" name="${inputObj.radioName}" value="5">
+        class="survey-fields">
+          ${generateFieldsAndSelectChecked(inputObj)}
       </fieldset>
     </article>
   </li>
     `;
+}
+
+function generateFieldsAndSelectChecked(inputObj) {
+  let HTML = ''
+  for(let i = 1; i < 5+1; i++) {
+    HTML += `<input onchange="${inputObj.onChange}" type="radio" name="${inputObj.radioName}" value="${i}" 
+    ${i == inputObj.checkedRadio ? 'checked' : ''}>`
+  }
+  return HTML;
 }
 
 // onchange value
