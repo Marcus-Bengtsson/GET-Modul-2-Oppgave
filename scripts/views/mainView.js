@@ -28,6 +28,10 @@ function updateMainView() {
     </main>
     <footer class="grid-footer">
     </footer>`;
+    if (appPage == 'GroupSite') {
+      new Chart('myDonut', donutChart);
+      new Chart('lineChart', lineChart); 
+    }
 }
 
 function getAppPageView(appPage = '') {
