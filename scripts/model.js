@@ -2,7 +2,7 @@
 const model = {
   // app
   app: {
-    page: 'SurveyPage',
+    page: 'GroupSite',
     userLoggedInId: 1, // null is loggedOut
   },
 
@@ -123,7 +123,7 @@ const model = {
         name: 'Gruppe 1',
         description: 'Beskrivelse av gruppe 1',
         intervals: 7,
-        startDate: "21/01/2022",
+        startDate: "2022-01-22",
         deadline: 3,
         userIds: [0, 1],
         managerIds: [0, 1, 3],
@@ -133,7 +133,7 @@ const model = {
         name: 'Gruppe 2',
         description: 'Beskrivelse av gruppe 2',
         intervals: 14,
-        startDate: "23/01/2022",
+        startDate: "2022-01-23",
         deadline: 4,
         userIds: [1, 2],
         managerIds: [0, 1, 3 ],
@@ -143,7 +143,7 @@ const model = {
         name: 'Gruppe 3',
         description: 'Beskrivelse av gruppe 3',
         intervals: 14,
-        startDate: "11/01/2022",
+        startDate: "2022-01-11",
         deadline: 3,
         userIds: [0, 2],
         managerIds: [0, 1, 3],
@@ -153,7 +153,7 @@ const model = {
         name: 'Gruppe 4',
         description: 'Beskrivelse av gruppe 4',
         intervals: 14,
-        startDate: "27/01/2022",
+        startDate: "2022-01-27",
         deadline: 4,
         userIds: [1, 2],
         managerIds: [0, 1, 3],
@@ -163,11 +163,20 @@ const model = {
       {
         id: 0,
         groupId: 0,
-        date: "01/05/2022",
+        date: "2022-01-31",
         totalAnswers: 2,
         totalScores: [17, 23, 10, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
         stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
         averageScores: [8.5, 11.5, 5, 7],
+      },
+      {
+        id: 1,
+        groupId: 0,
+        date: "2022-02-07",
+        totalAnswers: 2,
+        totalScores: [12, 26, 8, 9], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
+        stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
+        averageScores: [6, 13, 4, 4.5],
       },
     ],
     comments: [

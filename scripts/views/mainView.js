@@ -1,5 +1,5 @@
 const appElement = document.getElementById('app');
-const showDevTools = true;
+const showDevTools = false;
 
 updateMainView();
 
@@ -29,7 +29,7 @@ function updateMainView() {
     <footer class="grid-footer">
     </footer>`;
     if (appPage == 'GroupSite') {
-      new Chart('myDonut', donutChart);
+      new Chart('myDonut', generateDonutChart(getMostRecentSurveyFromGroupId(model.inputs.groupSite.groupId)));
       new Chart('lineChart', lineChart); 
     }
 }

@@ -38,3 +38,16 @@ function getGroupFromGroupId(groupId) {
   }
   return returnGroup;
 }
+function getMostRecentSurveyFromGroupId(groupId) {
+  let surveyList = getSurveysFromGroupId(groupId);
+  let mostRecentSurveyTime = null;
+  let mostRecentSurvey = {};
+  for (const survey of surveyList) {
+      let surveyDate = new Date(survey.date).getTime();
+      if (surveyDate > mostRecentSurveyTime) {
+        mostRecentSurveyTime = surveyDate;
+        mostRecentSurvey = survey;
+      }
+  }
+  return mostRecentSurvey;
+}
