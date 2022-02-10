@@ -45,12 +45,12 @@ function questionsToHTML(questionList) {
 function generateQuestions(questionArray) {
   let input = [];
   for (let i = 0; i < questionArray.length; i++) {
-    const question = questionArray[i];
+    const question = parseQuestion(questionArray[i]);
     input.push({
-      questionText: question,
-      onChange: "console.log(this)",
+      questionText: question.text,
+      onChange: `setAnswerValue(${question.number}, parseInt(this.value, 10))`, // setAnswerValue() `
       radioName: `answer${i}`,
-      checkedRadio: 1,
+      checkedRadio: `${model.inputs.surveyPage.answers[question.number-1]}`,
     });
   }
   return input;

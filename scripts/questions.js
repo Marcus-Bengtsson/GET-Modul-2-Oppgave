@@ -1,8 +1,6 @@
 const tuckmanQuestions = {
   formingQuestions: [ /* 1, 5, 10, 15, 18, 21, 27, 29 */
-    `1: We try to have set procedures or protocols to ensure that things are orderly and run
-    smoothly (e.g. minimize interruptions; everyone gets the opportunity to have their
-    say).`,
+    `1: We try to have set procedures or protocols to ensure that things are orderly and run smoothly (e.g. minimize interruptions; everyone gets the opportunity to have their say).`,
     `5: Team members are afraid or do not like to ask others for help.`,
     `10: Team members do not fully trust the other team members and closely monitor others
     who are working on a specific task.`,
@@ -30,26 +28,26 @@ const tuckmanQuestions = {
     `31: There is a lot of resisting of the tasks on hand and quality improvement approaches.`,
   ],
   normingQuestions: [
-      `4: We have thorough procedures for agreeing on our objectives and planning the way we
+    `4: We have thorough procedures for agreeing on our objectives and planning the way we
       will perform our tasks.`,
-      `6: We take our team's goals and objectives literally, and assume a shared understanding.`,
-      `11: The team leader ensures that we follow the procedures, do not argue, do not interrupt,
+    `6: We take our team's goals and objectives literally, and assume a shared understanding.`,
+    `11: The team leader ensures that we follow the procedures, do not argue, do not interrupt,
       and keep to the point.`,
-      `13: We have accepted each other as members of the team.`,
-      `19: We try to achieve harmony by avoiding conflict.`,
-      `24: The team is often tempted to go above the original scope of the project.`,
-      `25: We express criticism of others constructively.`,
-      `30: We often share personal problems with each other.`,
+    `13: We have accepted each other as members of the team.`,
+    `19: We try to achieve harmony by avoiding conflict.`,
+    `24: The team is often tempted to go above the original scope of the project.`,
+    `25: We express criticism of others constructively.`,
+    `30: We often share personal problems with each other.`,
   ],
   performingQuestions: [
-      `3: Our team feels that we are all in it together and shares responsibilities for the team's
+    `3: Our team feels that we are all in it together and shares responsibilities for the team's
       success or failure.`,
-      `8: We do not have fixed procedures, we make them up as the task or project progresses.`,
-      `12: We enjoy working together; we have a fun and productive time.`,
-      `14: The team leader is democratic and collaborative.`,
-      `17: We fully accept each other's strengths and weaknesses.`,
-      `22: We are able to work through group problems.`,
-      `26: There is a close attachment to the team.`,
-      `32: We get a lot of work done.`,
+    `8: We do not have fixed procedures, we make them up as the task or project progresses.`,
+    `12: We enjoy working together; we have a fun and productive time.`,
+    `14: The team leader is democratic and collaborative.`,
+    `17: We fully accept each other's strengths and weaknesses.`,
+    `22: We are able to work through group problems.`,
+    `26: There is a close attachment to the team.`,
+    `32: We get a lot of work done.`,
   ],
 }
