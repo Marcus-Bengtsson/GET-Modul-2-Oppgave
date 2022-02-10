@@ -1,4 +1,8 @@
-function devSignup() {
+function onClickSignupDev() {
+    if (model.app.page != 'UserSignup') {
+        return;
+    }
+
     model.inputs.userSignup = {
         firstName: 'User',
         lastName: 'lastname',
@@ -8,6 +12,7 @@ function devSignup() {
         confirmEmail: true,
         confirmCreation: true,
     }
+
     handleSignupOnClick()
 }
 
@@ -15,8 +20,16 @@ function devSignup() {
  * Dev login
  * @description Automatically logins on click instead of developers having to type in login details
  */
- function oneClickLoginDev() {
-    model.inputs.userLogin.email = 'ola@example.com';
-    model.inputs.userLogin.password = 'N0rdp@ssw0rd99_';
+function onClickLoginDev() {
+    if (model.app.page != 'UserLogin') {
+        return;
+    }
+
+    model.inputs.userLogin = {
+        email: 'ola@example.com',
+        password: 'N0rdp@ssw0rd99_',
+        isCorrect: true,
+    }
+
     handleLoginOnClick();
 }

@@ -1,51 +1,41 @@
+const appElement = document.getElementById('app');
+const showDevTools = true;
+
 updateMainView();
 
 function updateMainView() {
-  let dev = true;
-  let html = '';
-  let hasNavbar = true;
-  let main = '';
-
   const appPage = model.app.page;
-  let viewFunction = getUpdateViewFunction(appPage);
+  let showNavbar = true;
 
-  if (viewFunction == undefined) {
-    main = `<h2>Error ${appPage} not found</h2>`
-  } else {
-    main = viewFunction();
-  }
-
-  switch(appPage) {
+  switch (appPage) {
     case 'UserLogin':
-      hasNavbar = false;
+      showNavbar = false;
       break;
-    case 'UserSignup': 
-      hasNavbar = false;
+    case 'UserSignup':
+      showNavbar = false;
       break;
   }
 
-  html = `
-  ${dev ? UpdateModelInfoView() : ''}
+  const appPageView = getAppPageView(appPage);
 
-  <header class="grid-header">
-  ${hasNavbar ? navBar() : ''}
-  </header>
-  <main class="grid-main">
-    ${main}
-  </main>
-  <footer class="grid-footer">
-
-  </footer>`
-  document.getElementById('app').innerHTML = html;
-  if (appPage == 'GroupSite') {
-    new Chart('myDonut', donutChart);
-    new Chart('lineChart', lineChart); 
-  }
+  appElement.innerHTML = `
+    ${showDevTools ? DevToolView() : ''}
+    <header class="grid-header">
+      ${showNavbar ? UpdateNavbar() : ''}
+    </header>
+    <main class="grid-main">
+      ${appPageView === undefined ? `<h2>Error ${appPage} not found</h2>` : appPageView()}
+    </main>
+    <footer class="grid-footer">
+    </footer>`;
+    if (appPage == 'GroupSite') {
+      new Chart('myDonut', donutChart);
+      new Chart('lineChart', lineChart); 
+    }
 }
 
-function getUpdateViewFunction(appPage = '') {
-  let name = `update${appPage}View`;
-  return window[name];
+function getAppPageView(appPage = '') {
+  return window[`update${appPage}View`];
 }
 
 

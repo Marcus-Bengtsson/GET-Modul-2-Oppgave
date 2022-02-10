@@ -3,7 +3,7 @@ const model = {
   // app
   app: {
     page: 'SurveyPage',
-    userLoggedInId: null, // null is loggedOut
+    userLoggedInId: 1, // null is loggedOut
   },
 
   // input
@@ -207,9 +207,3 @@ const model = {
     ],
   },
 }
-// imageURL
-// Articles
-// Id
-// Titel
-// Beskrivelse
-// Bildelink
