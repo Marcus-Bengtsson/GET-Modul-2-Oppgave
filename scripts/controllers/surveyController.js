@@ -1,7 +1,35 @@
-// createSurvey()
-
-{
+function nextPage() {
   const surveyPage = model.inputs.surveyPage;
+    surveyPage.pageNumber += 1;
+    updateMainView();
+} 
+function previousPage() {
+  const surveyPage = model.inputs.surveyPage;
+    surveyPage.pageNumber -= 1;
+    updateMainView();
+} 
+
+function isFirstPage() {
+  const surveyPage = model.inputs.surveyPage;
+  if(surveyPage.pageNumber === 1) {
+    return true;
+  }
+  return false;
+}
+
+function isLastPage() {
+  const surveyPage = model.inputs.surveyPage;
+  if(surveyPage.pageNumber == surveyPage.lastPageNumber) {
+    return true;
+  }
+  return false;
+}
+
+function setupSurvey() {
+  const surveyPage = model.inputs.surveyPage;
+  if(surveyPage.surveyId != null) {
+    return;
+  }
   surveyPage.answers = new Array(32).fill(0);
 }
 
