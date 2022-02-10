@@ -1,4 +1,4 @@
-function updateGroupSiteView () {
+function updateGroupSiteView() {
     if (model.inputs.groupSite.groupId === null) model.inputs.groupSite.groupId = 0;
     const group = getGroupFromGroupId(model.inputs.groupSite.groupId);
     let html = `
@@ -9,6 +9,7 @@ function updateGroupSiteView () {
         <button onclick="redirectToPage('GroupSiteEdit')">Rediger</button>
     </div>
     <h1 class="group-site-h1">${group.name}</h1>
+    <div class="group-site-description">${group.description}</div>
     <div class="group-site-infoBoxes">
         <div>
             <h3>Tidsintervall</h3>
@@ -24,9 +25,12 @@ function updateGroupSiteView () {
         </div>
     </div>
     <table class="group-site-participantList">
-    <th>Deltakerliste</th>
+        <theader>
+            <th>Deltakerliste</th>
+        </theader>
+        <tbody>
     `
-    for(let i = 0; i < group.userIds.length; i++) {
+    for (let i = 0; i < group.userIds.length; i++) {
         const user = getUserFromID(group.userIds[i]);
         html += `
         <tr>
@@ -34,6 +38,13 @@ function updateGroupSiteView () {
         </tr>
         `
     }
-    html += `</table>`
+    html += `</tbody></table>
+        <div class="group-site-doughnut">
+          <canvas id="myDonut"></canvas>
+        </div>
+        <div class="group-site-lineChart">
+          <canvas id="lineChart"></canvas>
+        </div>
+    `
     return html;
 }
