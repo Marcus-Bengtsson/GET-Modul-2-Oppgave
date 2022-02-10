@@ -1,6 +1,3 @@
-
-
-
 function getArticles() {
     // TODO: Dashboard inputs
     // return articles from inputIds
