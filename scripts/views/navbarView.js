@@ -1,7 +1,8 @@
 function UpdateNavbar() {
   let iconInputs = {
     profile: {
-      iconName: 'account_circle'
+      iconName: 'account_circle',
+      page: 'UserProfile'
     },
     dashboard: {
       iconName: 'home',
@@ -23,15 +24,20 @@ function UpdateNavbar() {
       iconName: 'poll',
       page: 'SurveyPage',
     },
+    devMod: {
+      iconName: 'developer_mode',
+      onClick: 'enableDev()'
+    }
   }
   return /*html*/`
     <nav aria-label="hoved" class="navbar-main">
-        ${iconHTML(iconInputs.profile)}
+        ${iconRedirectButtonHTML(iconInputs.profile)}
         ${iconButtonHTML(iconInputs.logout)}
         ${iconRedirectButtonHTML(iconInputs.dashboard)}
         ${iconHTML(iconInputs.notifications)}
         ${iconRedirectButtonHTML(iconInputs.grouplist)}
-        ${iconRedirectButtonHTML(iconInputs.survey)} 
+        ${iconRedirectButtonHTML(iconInputs.survey)}
+        ${iconButtonHTML(iconInputs.devMod)}
     </nav>
     `
 }

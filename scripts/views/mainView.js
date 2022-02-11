@@ -1,7 +1,12 @@
 const appElement = document.getElementById('app');
-const showDevTools = false;
+let showDevTools = true;
 
 updateMainView();
+
+function enableDev() {
+  showDevTools = !showDevTools;
+  updateMainView();
+}
 
 function updateMainView() {
   const appPage = model.app.page;

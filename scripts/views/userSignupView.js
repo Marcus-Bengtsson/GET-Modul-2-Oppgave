@@ -45,8 +45,8 @@ function updateUserSignupView() {
           ${inputTextWithLabelHTML(userSignupViewInputs.firstName)}
           ${inputTextWithLabelHTML(userSignupViewInputs.lastName)}
           ${inputEmailWithLabeHTML(userSignupViewInputs.email)}
-          ${passwordInputWithLabelHTML(userSignupViewInputs.password)}         
-          ${passwordInputWithLabelHTML(userSignupViewInputs.confirmPassword)} 
+          ${passwordInputWithLabelHTML(userSignupViewInputs.password)}
+          ${passwordInputWithLabelHTML(userSignupViewInputs.confirmPassword)}
        </form>
        <button form="signup-form" type="submit">Registrer</button>
        <button onclick="redirectToPage('UserLogin')">Tilbake</button>

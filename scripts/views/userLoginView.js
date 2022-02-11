@@ -22,7 +22,7 @@ function updateUserLoginView() {
        <h1>Logg inn</h1>
        <form id="login-form" onsubmit="handleLoginOnClick(); return false">
          ${inputEmailWithLabeHTML(userLoginViewInputs.email)}
-         ${passwordInputWithLabelHTML(userLoginViewInputs.password)}         
+         ${passwordInputWithLabelHTML(userLoginViewInputs.password)}
        </form>
        <button form="login-form" type="submit">Logg inn</button>
        <button onclick="redirectToPage('UserSignup')">Registrer</button>
