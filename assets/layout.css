@@ -19,5 +19,5 @@
 
 .grid-header {
   grid-area: header;
-  background-color: rgb(34, 34, 34);
+  background-color: rgba(54, 100, 136, 0.25);
 }

@@ -1,0 +1,14 @@
+/* ---------- */
+/* Colors     */
+/* ---------- */
+
+:root {
+  --background: url("./images/Background.png");
+  --title-text: rgb(44, 44, 44);
+}
+
+
+body {
+  background: var(--background);
+  background-size: cover;
+}

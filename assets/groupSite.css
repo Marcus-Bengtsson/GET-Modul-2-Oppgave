@@ -27,14 +27,13 @@
 
 .group-site-participantList {
     grid-area: deltakere;
-    border: 1px solid black;
+    border: 1px solid white;
     background-color: white;
     height: 50px;
     width: 250px;
 }
 .group-site-participantList>table, th, tr, td, theader {
-    border: 1px solid black;
-    
+    border: 1px solid rgb(200, 200, 200);
     padding: 20px;
 }
 .group-site-description {

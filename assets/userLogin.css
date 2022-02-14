@@ -1,0 +1,14 @@
+.user-login {
+  display: grid;
+  font-size: 1.2rem;
+
+}
+
+.user-login-content {
+    display: grid;
+    width: fit-content;
+    padding: 1rem 0;
+    margin: 0 auto;
+}
+
+
