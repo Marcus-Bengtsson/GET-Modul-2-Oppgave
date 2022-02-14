@@ -1,9 +1,9 @@
 .material-icons {
-    color: hsl(0, 0%, 91%);
+    color: var(--title-text);
 }
 
 .material-icons:hover {
-    color: lightblue;
+    color: antiquewhite;
     cursor: pointer;
 }
 

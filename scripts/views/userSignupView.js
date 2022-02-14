@@ -5,7 +5,7 @@ function updateUserSignupView() {
       labelText: 'Fornavn:',
       value: userSignup.firstName,
       onChange: 'model.inputs.userSignup.firstName = this.value',
-      placeholderText: 'Skriv inn fornavn',
+      placeholderText: 'Skriv inn fornavn..',
       isRequired: true,
     },
     lastName: {
@@ -16,10 +16,10 @@ function updateUserSignupView() {
       isRequired: true,
     },
     email: {
-      labelText: 'Epost: ',
+      labelText: 'E-post: ',
       value: userSignup.email,
       onChange: 'model.inputs.userSignup.email = this.value',
-      placeholderText: 'Skriv inn epost..',
+      placeholderText: 'Skriv inn e-post..',
       isRequired: true,
     },
     password: {
@@ -30,7 +30,7 @@ function updateUserSignupView() {
       placeholderText: 'Skriv inn passord..'
     },
     confirmPassword: {
-      labelText: 'Bekrefte passord:',
+      labelText: 'Bekreft passord:',
       savePass: false,
       value: userSignup.confirmPassword,
       onChange: 'model.inputs.userSignup.confirmPassword = this.value',
@@ -40,7 +40,7 @@ function updateUserSignupView() {
 
   return /*html*/`
        <div>
-       <h1>Registrer bruker</h1>
+       <h1 style="margin-bottom: 1.5rem">Registrer bruker</h1>
        <form id="signup-form" onsubmit="handleSignupOnClick(); return false">
           ${inputTextWithLabelHTML(userSignupViewInputs.firstName)}
           ${inputTextWithLabelHTML(userSignupViewInputs.lastName)}
@@ -50,7 +50,7 @@ function updateUserSignupView() {
        </form>
        <button form="signup-form" type="submit">Registrer</button>
        <button onclick="redirectToPage('UserLogin')">Tilbake</button>
-       ${userSignup.confirmCreation === false ? '<p style="color: red;">Passwords do not match</p>' : ''}
-       ${userSignup.confirmEmail === false ? '<p style="color: red;">Email has already been used</p>' : ''}
+       ${userSignup.confirmCreation === false ? '<p style="color: red;">Passordene er ikke like</p>' : ''}
+       ${userSignup.confirmEmail === false ? '<p style="color: red;">E-post er allerede brukt</p>' : ''}
       </div>`
 }

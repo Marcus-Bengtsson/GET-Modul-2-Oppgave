@@ -8,10 +8,11 @@
     color: rgb(44, 44, 44);
     border: none;
     border-radius: 0.25rem;
+    font-weight: 500;
 }
 
 .information-card:hover {
-    opacity: 0.85;
+    background-color: rgba(54, 100, 136, 0.25);
     cursor: pointer;
 }
 
@@ -57,9 +58,14 @@
     border: none;
     border-radius: 0.25rem;
     margin: 0;
+    font-weight: 500;
+}
+
+h3 {
+    font-weight: 500;
 }
 
 .navbar-card:hover {
-    background-color: lightblue;
+    background-color: rgba(54, 100, 136, 0.25);
     cursor: pointer;
 }
