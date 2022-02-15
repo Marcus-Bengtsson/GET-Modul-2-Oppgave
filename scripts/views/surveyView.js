@@ -1,12 +1,17 @@
 function updateSurveyPageView() {
-  const nextButton = `<button onclick="nextPage()">Neste</button>`;
-  const finishButton = `<button>Fullfør</button>`;
-  const previousButton = `<button onclick="previousPage()">Forrige</button>`;
-  const cancelButton = `<button onclick="redirectToPage('Dashboard')">Avbryt</button>`;
   const surveyPage = model.inputs.surveyPage;
   const template = model.data.templates[0];
   surveyPage.lastPageNumber = template.pages.length;
+  
+  const navigationButtons = {
+    nextButton: `<button onclick="nextPage()">Neste</button>`,
+    finishButton: `<button>Fullfør</button>`,
+    previousButton: `<button onclick="previousPage()">Forrige</button>`,
+    cancelButton: `<button onclick="redirectToPage('Dashboard')">Avbryt</button>`,
+  }
+
   let questionList = generateQuestions(template.pages[surveyPage.pageNumber-1].questions);
+  
   const surveyViewInputs = {
     header: {
       title: "Survey week 1",
@@ -21,6 +26,7 @@ function updateSurveyPageView() {
         rows: 10, 
     },
   };
+
   return /*html*/ `
   <div>
   <section>
@@ -33,8 +39,8 @@ function updateSurveyPageView() {
       </ul>
     </section>
     <div class="survey-buttons">
-      ${isFirstPage() ? cancelButton : previousButton}
-      ${isLastPage() ? finishButton : nextButton}
+      ${isFirstPage() ? navigationButtons.cancelButton : navigationButtons.previousButton}
+      ${isLastPage() ? navigationButtons.finishButton : navigationButtons.nextButton}
     </div>
   </div>
   `;

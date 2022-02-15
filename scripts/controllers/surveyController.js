@@ -3,6 +3,7 @@ function nextPage() {
     surveyPage.pageNumber += 1;
     updateMainView();
 } 
+
 function previousPage() {
   const surveyPage = model.inputs.surveyPage;
     surveyPage.pageNumber -= 1;
@@ -55,3 +56,50 @@ function parseQuestion(question) {
     text: splitQuestionArray[1]
   }
 }
+
+
+
+
+function parseTemplateForCalculation(template) {
+  const calculationOutput = {
+    pages: []
+  }
+  // Go through the pages that are in template (input)
+  for (const page of template.pages) {
+    const pageCalculation = {
+      title: page.title,
+      questionIndexList: [],
+    }
+
+    for (const question of page.questions) {
+      let splitQuestionArray = question.split(':');
+      let questionNumber = parseInt(splitQuestionArray[0], 10);
+      pageCalculation.questionIndexList.push(questionNumber-1);
+    }
+    calculationOutput.pages.push(pageCalculation);
+  }
+  return calculationOutput;
+}
+
+function CalculateTotalScore(calculationInput, surveyAnswers = []) {
+  const output = {
+    totalScores: [],
+    stageNames: [],
+  }
+  for (const page of calculationInput.pages) {
+    let totalPageScore = 0;
+    for (const questionIndex of page.questionIndexList) {
+      totalPageScore += surveyAnswers[questionIndex];
+    }
+    output.totalScores.push(totalPageScore);
+    output.stageNames.push(page.title);
+  }
+  return output;
+}
+
+// TODO:
+  // functions to create:
+    // CheckAllAnswersAnswered
+    // CreateSurvey
+    // handleSurveyFinished
+    // resetSurveyInputs
