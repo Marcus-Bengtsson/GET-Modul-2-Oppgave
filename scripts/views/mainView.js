@@ -25,6 +25,7 @@ function updateMainView() {
 
   appElement.innerHTML = `
     ${showDevTools ? DevToolView() : ''}
+    
     <header class="grid-header">
       ${showNavbar ? UpdateNavbar() : ''}
     </header>
@@ -32,7 +33,8 @@ function updateMainView() {
       ${appPageView === undefined ? `<h2>Error ${appPage} not found</h2>` : appPageView()}
     </main>
     <footer class="grid-footer">
-    </footer>`;
+    </footer>
+    `;
     if (appPage == 'GroupSite') {
       new Chart('myDonut', generateDonutChart(getMostRecentSurveyFromGroupId(model.inputs.groupSite.groupId)));
       new Chart('lineChart', lineChart); 
