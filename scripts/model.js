@@ -286,10 +286,3 @@ const model = {
     ]
   },
 }
-
-// surveyTemplate
-  // id | number
-  // pages | array objekter
-    // title
-    // questions | array string
-    // 

@@ -7,8 +7,8 @@ function updateGroupListView () {
         <button onclick="redirectToPage('GroupEdit')">Rediger</button>
         <button onclick="redirectToPage('GroupNew')">Lag ny</button>
     </div>
-<table>
-    <thead>
+<table class="group-list-table">
+    <thead class="group-list-table-head">
         <tr>
         <th><input onchange="checkAllBox(this.checked)" type="checkbox" ${model.inputs.groupList.checkedAll ? "checked" : ""}></th>
         <th>Navn</th>
@@ -17,7 +17,7 @@ function updateGroupListView () {
         <th>Antall undersøkelser</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="group-list-table-body">
     `
     for(const group of getGroupsFromUserID(model.app.userLoggedInId, true)) {
         html += `
