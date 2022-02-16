@@ -8,6 +8,9 @@ const model = {
 
   // input
   inputs: {
+    devTools: {
+      isOpen: false,
+    },
     groupList: {
       markedGroupIds: [],
       checkedAll: false,
