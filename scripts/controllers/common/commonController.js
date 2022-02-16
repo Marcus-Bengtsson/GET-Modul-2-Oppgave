@@ -20,3 +20,12 @@ function logout() {
 function toStringDate(date) {
     return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 }
+
+function getObjFromID(id, array) {
+    for (const object of array) {
+        if (object.id === id) {
+            return object;
+        }
+    }
+    return null;
+}

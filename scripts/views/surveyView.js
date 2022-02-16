@@ -5,7 +5,7 @@ function updateSurveyPageView() {
   
   const navigationButtons = {
     nextButton: `<button onclick="nextPage()">Neste</button>`,
-    finishButton: `<button>Fullfør</button>`,
+    finishButton: `<button onclick="handleSurveyFinished()">Fullfør</button>`,
     previousButton: `<button onclick="previousPage()">Forrige</button>`,
     cancelButton: `<button onclick="redirectToPage('Dashboard')">Avbryt</button>`,
   }
