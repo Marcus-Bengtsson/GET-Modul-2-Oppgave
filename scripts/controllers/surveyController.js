@@ -96,13 +96,6 @@ function CalculateTotalScore(calculationInput, surveyAnswers = []) {
   return output;
 }
 
-// TODO:
-// functions to create:
-  // CheckAllAnswersAnswered X
-  // CreateSurvey
-  // handleSurveyFinished X
-  // resetSurveyInputs X
-
 function CreateSurvey(groupId) {
   const surveys = model.data.surveys;
   let newId = getHighestIdFromArrayObj(surveys) + 1;
@@ -118,7 +111,6 @@ function CreateSurvey(groupId) {
   })
   model.inputs.surveyPage.surveyId = newId;
 }
-
 
 function updateAverageScores(survey) {
   for (let i = 0; i < survey.averageScores.length; i++) {
@@ -175,3 +167,5 @@ function resetSurveyInputs() {
     confirmSubmission: false,
   }
 }
+
+//TODO: Kommentar lagres med handleSurveyFinished()
