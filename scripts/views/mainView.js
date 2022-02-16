@@ -31,10 +31,7 @@ function updateMainView() {
     </header>
     <main class="grid-main">
       ${appPageView === undefined ? `<h2>Error ${appPage} not found</h2>` : appPageView()}
-    </main>
-    <footer class="grid-footer">
-    </footer>
-    `;
+    </main>`;
     if (appPage == 'GroupSite') {
       new Chart('myDonut', generateDonutChart(getMostRecentSurveyFromGroupId(model.inputs.groupSite.groupId)));
       new Chart('lineChart', lineChart); 

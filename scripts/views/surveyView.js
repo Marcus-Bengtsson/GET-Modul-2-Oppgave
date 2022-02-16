@@ -28,7 +28,7 @@ function updateSurveyPageView() {
   };
 
   return /*html*/ `
-  <div>
+  <div class="survey-page">
   <section>
     <header>
       ${surveyHeader(surveyViewInputs.header)}
