@@ -23,10 +23,6 @@ function UpdateNavbar() {
     survey: {
       iconName: 'poll',
       page: 'SurveyPage',
-    },
-    devMod: {
-      iconName: 'developer_mode',
-      onClick: 'enableDev()'
     }
   }
   return /*html*/`
@@ -37,7 +33,6 @@ function UpdateNavbar() {
         ${iconHTML(iconInputs.notifications)}
         ${iconRedirectButtonHTML(iconInputs.grouplist)}
         ${iconRedirectButtonHTML(iconInputs.survey)}
-        ${iconButtonHTML(iconInputs.devMod)}
     </nav>
     `
 }

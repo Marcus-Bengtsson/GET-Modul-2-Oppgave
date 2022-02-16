@@ -6,7 +6,7 @@
     "header header header"
     "main main main"
     "footer footer footer";
-  grid-template-rows: 1fr 15fr 1fr;
+  grid-template-rows: 1fr 15fr 0fr;
   height: 100vh;
 }
 
@@ -14,7 +14,7 @@
   grid-area: main;
   display: grid;
   place-items: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .grid-header {
