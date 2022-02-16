@@ -36,11 +36,11 @@ function updateGroupSiteView() {
         `
     }
     html += `</tbody></table>
-        <div style="width: 500px; height: 300px;" class="group-site-doughnut">
-          <canvas id="myDonut" class="donutChart"></canvas>
+        <div style="width: 500px; height: 300px;" class="group-site-donutChart">
+          <canvas id="group-site-donutChart""></canvas>
         </div>
         <div class="group-site-lineChart">
-          <canvas id="lineChart"></canvas>
+          <canvas id="group-site-lineChart"></canvas>
         </div>
         </div>
     `

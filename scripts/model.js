@@ -2,7 +2,7 @@
 const model = {
   // app
   app: {
-    page: 'UserLogin',
+    page: 'GroupSite',
     userLoggedInId: 1, // null is loggedOut
   },
 
@@ -177,9 +177,40 @@ const model = {
         groupId: 0,
         date: "2022-02-07",
         totalAnswers: 2,
-        totalScores: [12, 26, 8, 9], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
-        stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
-        averageScores: [6, 13, 4, 4.5],
+        totalScores: [12, 26, 8, 9, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
+        stageNames: ['Forming', 'Storming', 'Norming', 'Performing', 'Cohesion'],
+        averageScores: [6, 13, 4, 4.5, 7],
+      },
+      {
+        id: 1,
+        groupId: 0,
+        date: "2022-02-14",
+        totalAnswers: 3,
+        totalScores: [30, 18, 16, 20, 24], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
+        stageNames: ['Forming', 'Storming', 'Norming', 'Performing', 'Cohesion'],
+        averageScores: [10, 6, 5.33, 6.66, 8],
+      },
+    ],
+    stageData: [
+      {
+        id: 'Forming',
+        color: '255, 99, 132',
+      },
+      {
+        id: 'Storming',
+        color: '255, 205, 86',
+      },
+      {
+        id: 'Norming',
+        color: '100, 150, 86',
+      },
+      {
+        id: 'Performing',
+        color: '75, 192, 192',
+      },
+      {
+        id: 'Cohesion',
+        color: '10, 120, 86',
       },
     ],
     comments: [
