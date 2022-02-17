@@ -1,3 +1,7 @@
+/*
+to do:
+    Om det ikke er gjort undersøkelse enda, sett neste undersøkelse utifra startdato til gruppen
+*/
 
 /**
  * @description Adds the groupId to the list of marked groups when they are turned on, and removes them when they are turned off.
