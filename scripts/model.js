@@ -46,6 +46,7 @@ const model = {
       surveyId: null,
       lastPageNumber: 4,
       pageNumber: 1,
+      title: '',
       // Lage array med nuller for antall spørsmål
       // 0 er ubesvart og når bruker velger så endrer vi verdien basert på index.
       answers: [],
@@ -171,6 +172,7 @@ const model = {
         totalScores: [17, 23, 10, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
         stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
         averageScores: [8.5, 11.5, 5, 7],
+        isInterval: true,
       },
       {
         id: 1,
@@ -180,6 +182,7 @@ const model = {
         totalScores: [12, 26, 8, 9, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
         stageNames: ['Forming', 'Storming', 'Norming', 'Performing', 'Cohesion'],
         averageScores: [6, 13, 4, 4.5, 7],
+        isInterval: true,
       },
       {
         id: 1,
@@ -189,6 +192,7 @@ const model = {
         totalScores: [30, 18, 16, 20, 24], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
         stageNames: ['Forming', 'Storming', 'Norming', 'Performing', 'Cohesion'],
         averageScores: [10, 6, 5.33, 6.66, 8],
+        isInterval: true,
       },
     ],
     stageData: [
