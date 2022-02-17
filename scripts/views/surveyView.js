@@ -1,8 +1,10 @@
 function updateSurveyPageView() {
   const surveyPage = model.inputs.surveyPage;
   const template = model.data.templates[0];
+  if(surveyPage.surveyId == null) setupSurvey();
   surveyPage.lastPageNumber = template.pages.length;
-  
+  surveyPage.title = getSurveyTitle();
+ 
   const navigationButtons = {
     nextButton: `<button onclick="nextPage()">Neste</button>`,
     finishButton: `<button onclick="handleSurveyFinished()">Fullfør</button>`,
@@ -14,7 +16,7 @@ function updateSurveyPageView() {
   
   const surveyViewInputs = {
     header: {
-      title: "Survey week 1",
+      title: surveyPage.title,
       subTitle: `part ${surveyPage.pageNumber} of ${surveyPage.lastPageNumber}`,
       headerTitle: template.pages[surveyPage.pageNumber-1].title,
     },
@@ -25,8 +27,18 @@ function updateSurveyPageView() {
         columns: 20,
         rows: 10, 
     },
+    anonymousInput: {
+      labelText: 'Anonym kommentar',
+      onChange: 'model.inputs.surveyPage.commentIsAnonymous = this.checked',
+      isChecked: surveyPage.commentIsAnonymous,
+    }
   };
 
+  const commentSection = `
+    ${textAreaWithLabelHTML(surveyViewInputs.comments)}
+    ${inputCheckboxWithLabelHTML(surveyViewInputs.anonymousInput)}
+  `
+  console.log(model.inputs.surveyPage.answers);
   return /*html*/ `
   <div class="survey-page">
   <section>
@@ -35,7 +47,7 @@ function updateSurveyPageView() {
     </header>
       <ul class="survey-questions">
         ${questionsToHTML(questionList)}
-        <li>${isLastPage() ? textAreaWithLabelHTML(surveyViewInputs.comments) : ''}</li>
+        <li>${isLastPage() ?  commentSection : ''}</li>
       </ul>
     </section>
     <div class="survey-buttons">
