@@ -12,7 +12,6 @@ function previousPage() {
 
 function isFirstPage() {
   const surveyPage = model.inputs.surveyPage;
-  if(surveyPage.answers.length == 0) setupSurvey();
   if (surveyPage.pageNumber === 1) {
     return true;
   }
@@ -59,6 +58,11 @@ function parseQuestion(question) {
   }
 }
 
+function getSurveyTitle() {
+  let survey = getObjFromID(model.inputs.surveyPage.surveyId, model.data.surveys);
+  return `Survey: ${survey.date}`
+}
+
 function parseTemplateForCalculation(template) {
   const calculationOutput = {
     pages: []
@@ -96,18 +100,18 @@ function CalculateTotalScore(calculationInput, surveyAnswers = []) {
   return output;
 }
 
-function CreateSurvey(groupId) {
+function CreateSurvey(groupId, date = new Date().toISOString().split('T')[0], isInterval = true) {
   const surveys = model.data.surveys;
   let newId = getHighestIdFromArrayObj(surveys) + 1;
-  let currentDate = new Date().toISOString().split('T')[0];
   surveys.push({
     id: newId,
     groupId: groupId,
-    date: currentDate,
+    date: date,
     totalAnswers: 0,
     totalScores: [],
     stageNames: [],
     averageScores: [],
+    isInterval: isInterval,
   })
   model.inputs.surveyPage.surveyId = newId;
 }
@@ -146,6 +150,7 @@ function handleSurveyFinished() {
   survey.totalAnswers += 1;
   
   updateAverageScores(survey);
+  createComment();
   
   resetSurveyInputs();
   
@@ -167,5 +172,3 @@ function resetSurveyInputs() {
     confirmSubmission: false,
   }
 }
-
-//TODO: Kommentar lagres med handleSurveyFinished()
