@@ -25,18 +25,29 @@
   grid-area: gruppenavn;
 }
 
-.group-site-participantList-body, .group-site-participantList-head {
-    background-color: rgba(250, 250, 250, 0.7);
-  }
+.group-site-participantList-head, .group-site-participant {
+  padding: 10px;
+}
 
-.group-site-participantList > th {
-    text-align: center;
+.group-site-participantList-head {
+    font-weight: 500;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--title-text);
+    text-align: start;
+    padding-left: 0px;
+}
+
+.group-site-participant {
+  background-color: white;
+  opacity: 80%;
+  border-radius: 0.25rem;
+  margin: 10px 0px;
 }
   
 .group-site-participantList {
     grid-area: deltakere;
-    border-collapse: separate;
-    border-spacing: 0.5rem;
     width: 15rem;
     height: 1rem;
 }
@@ -57,7 +68,8 @@
 
 .group-site-interval {
   grid-area: intervall;
-  height: 100px;
+  padding: 5px 10px;
+  height: 20px;
 }
 
 .group-site-count {
@@ -75,7 +87,9 @@
 .group-site-next {
   border: 1px solid var(--title-text);
   background-color: white;
-  padding: 20px;
+  opacity: 80%;
+  padding: 10px 15px;
+  padding-bottom: 5px;
   border-radius: 0.5rem;
   width: 250px;
   height: 90px;

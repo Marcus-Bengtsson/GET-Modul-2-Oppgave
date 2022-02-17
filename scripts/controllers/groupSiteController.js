@@ -60,6 +60,27 @@ function generateLineChart() {
         },
         options: {
             backgroundColor: 'white',
+            scales: {
+
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#FFFFFF"
+                    },
+                    grid: {
+                        color: "#FFFFFF"
+                      }, 
+                },
+                y: {
+                    ticks: {
+                        color: "#FFFFFF"
+                    },
+                    grid: {
+                        color: "#FFFFFF"
+                      }, 
+                },
+            },
             plugins: {
                 legend: {
                     labels: {

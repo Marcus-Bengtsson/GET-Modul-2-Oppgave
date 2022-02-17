@@ -2,7 +2,7 @@
 const model = {
   // app
   app: {
-    page: 'GroupSite',
+    page: 'GroupList',
     userLoggedInId: 1, // null is loggedOut
   },
 
@@ -14,6 +14,7 @@ const model = {
     groupList: {
       markedGroupIds: [],
       checkedAll: false,
+      isManagerList: false,
     },
     groupSite: {
       groupId: null, // number
@@ -146,7 +147,7 @@ const model = {
         name: 'Gruppe 3',
         description: 'Beskrivelse av gruppe 3',
         intervals: 14,
-        startDate: "2022-01-11",
+        startDate: "2022-02-07",
         deadline: 3,
         userIds: [0, 2],
         managerIds: [0, 1, 3],
@@ -156,7 +157,7 @@ const model = {
         name: 'Gruppe 4',
         description: 'Beskrivelse av gruppe 4',
         intervals: 14,
-        startDate: "2022-01-27",
+        startDate: "2022-02-11",
         deadline: 4,
         userIds: [1, 2],
         managerIds: [0, 1, 3],
@@ -182,13 +183,13 @@ const model = {
         averageScores: [6, 13, 4, 4.5, 7],
       },
       {
-        id: 1,
+        id: 2,
         groupId: 0,
         date: "2022-02-14",
         totalAnswers: 3,
-        totalScores: [30, 18, 16, 20, 24], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
-        stageNames: ['Forming', 'Storming', 'Norming', 'Performing', 'Cohesion'],
-        averageScores: [10, 6, 5.33, 6.66, 8],
+        totalScores: [30, 18, 16, 20], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
+        stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
+        averageScores: [10, 6, 5.33, 6.66],
       },
     ],
     stageData: [
@@ -222,8 +223,10 @@ const model = {
       }
     ],
     avatars: [
-      {id: 0, url: '', alt: ''},
-      {id: 1, url: '', alt: ''},
+      {id: 0, url: 'assets/images/grandfather.png', alt: ''},
+      {id: 1, url: 'assets/images/man2.png', alt: ''},
+      {id: 2, url: 'assets/images/woman.png', alt: ''},
+      {id: 3, url: 'assets/images/woman2.png', alt: ''},
     ],
     articles: [
       {

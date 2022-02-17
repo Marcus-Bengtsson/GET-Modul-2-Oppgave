@@ -23,21 +23,18 @@ function updateGroupSiteView() {
         <h3>Neste undersøkelse</h3>
         <p>${getNextSurveyDate(group)}</p>
         </div>
-    <table class="group-site-participantList">
-        <thead class="group-site-participantList-head">
-        <th>Deltakerliste</th>
-        </thead>
-        <tbody class="group-site-participantList-body">
+    <div class="group-site-participantList">
+        <div class="group-site-participantList-head">Deltakerliste</div>
     `
     for (let i = 0; i < group.userIds.length; i++) {
         const user = getUserFromID(group.userIds[i]);
         html += `
-        <tr>
-            <td>${user.firstName} ${user.lastName}</td>
-        </tr>
+        <div class="group-site-participant">
+            ${user.firstName} ${user.lastName}
+        </div>
         `
     }
-    html += `</tbody></table>
+    html += `</div>
         <div style="width: 500px; height: 300px;" class="group-site-donutChart">
           <canvas id="group-site-donutChart""></canvas>
         </div>
