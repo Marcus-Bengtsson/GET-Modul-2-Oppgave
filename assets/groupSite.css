@@ -1,78 +1,82 @@
 .group-site-gridContainer {
-    padding: 60px 70px;
-    width: 100%;
-    height: 100%;
-    column-gap: 2rem;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: 
+  padding: 60px 70px;
+  width: 100%;
+  height: 100%;
+  column-gap: 2rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
     "gruppenavn . . knapper knapper"
     "beskrivelse beskrivelse . . ."
     "intervall antall neste . deltakere"
-    "nyeste nyeste utvikling utvikling deltakere"
+    "nyeste nyeste utvikling utvikling deltakere";
 }
 .group-site-buttons {
-    grid-area: knapper;
-    place-self: center;
+  grid-area: knapper;
+  place-self: center;
 }
-.group-site-buttons>button {
-    margin-left: 7px;
+.group-site-buttons > button {
+  margin-left: 7px;
 }
 
 .group-site-h1 {
-    grid-area: gruppenavn;
+  grid-area: gruppenavn;
 }
 
+.group-site-participantList-body, .group-site-participantList-head {
+    background-color: rgba(250, 250, 250, 0.7);
+  }
+
+.group-site-participantList > th {
+    text-align: center;
+}
+  
 .group-site-participantList {
     grid-area: deltakere;
-    border: 1px solid white;
-    background-color: white;
-    height: 50px;
-    width: 250px;
+    border-collapse: separate;
+    border-spacing: 0.5rem;
+    width: 15rem;
+    height: 1rem;
 }
-.group-site-participantList>table, th, tr, td, theader {
-    border: 1px solid rgb(200, 200, 200);
-    padding: 20px;
-}
+
 .group-site-description {
-    grid-area: beskrivelse;
-    color: white;
-    padding: 10px
+  grid-area: beskrivelse;
+  color: var(--title-text);
+  padding: 10px;
 }
 .group-site-donutChart {
-    grid-area: nyeste;
-    height: 2
+  grid-area: nyeste;
+  height: 2;
 }
 .group-site-lineChart {
-    grid-area: utvikling;
-    padding-top: 70px;
+  grid-area: utvikling;
+  padding-top: 70px;
 }
 
 .group-site-interval {
-    grid-area: intervall;
-    height: 100px;
-    
+  grid-area: intervall;
+  height: 100px;
 }
 
 .group-site-count {
-    grid-area: antall;
-    height: 100px;
+  grid-area: antall;
+  height: 100px;
 }
 
 .group-site-next {
-    grid-area: neste;
-    height: 100px;
+  grid-area: neste;
+  height: 100px;
 }
 
-.group-site-interval, .group-site-count, .group-site-next {
-    border: 1px solid black;
-    background-color: white;
-    padding: 20px;
-    border-radius: 30px;
-    width: 250px;
-    height: 90px;
+.group-site-interval,
+.group-site-count,
+.group-site-next {
+  border: 1px solid var(--title-text);
+  background-color: white;
+  padding: 20px;
+  border-radius: 0.5rem;
+  width: 250px;
+  height: 90px;
 }
-
-

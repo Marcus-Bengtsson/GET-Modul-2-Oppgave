@@ -65,7 +65,7 @@ h3 {
     font-weight: 500;
 }
 
-.navbar-card:hover {
+button.navbar-card:hover {
     background-color: rgba(54, 100, 136, 0.25);
     cursor: pointer;
 }

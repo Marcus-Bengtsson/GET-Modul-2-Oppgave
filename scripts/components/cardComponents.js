@@ -1,12 +1,12 @@
 function navbarCardUser() {
   return /*html*/`
-    <button class="navbar-card">
+    <div class="navbar-card">
       <img/>
       <div>
           <h3>Hei ${getUserFromID(model.app.userLoggedInId).firstName}!</h3>
           <p>Velkommen til din side</p>
       </div>
-  </button>`
+  </div>`
 }
 
 function navbarCard(tittel, beskrivelse) {
