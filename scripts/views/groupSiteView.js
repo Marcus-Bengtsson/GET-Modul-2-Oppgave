@@ -24,8 +24,10 @@ function updateGroupSiteView() {
         <p>${getNextSurveyDate(group)}</p>
         </div>
     <table class="group-site-participantList">
-            <th>Deltakerliste</th>
-        <tbody>
+        <thead class="group-site-participantList-head">
+        <th>Deltakerliste</th>
+        </thead>
+        <tbody class="group-site-participantList-body">
     `
     for (let i = 0; i < group.userIds.length; i++) {
         const user = getUserFromID(group.userIds[i]);

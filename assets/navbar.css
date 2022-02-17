@@ -5,6 +5,7 @@
 .material-icons:hover {
     color: antiquewhite;
     cursor: pointer;
+    opacity: 80%;
 }
 
 .navbar-main {

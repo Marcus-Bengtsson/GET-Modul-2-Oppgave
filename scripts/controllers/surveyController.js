@@ -113,7 +113,7 @@ function CreateSurvey(groupId) {
 }
 
 function updateAverageScores(survey) {
-  for (let i = 0; i < survey.averageScores.length; i++) {
+  for (let i = 0; i < survey.totalScores.length; i++) {
     survey.averageScores[i] = survey.totalScores[i] / survey.totalAnswers;
   }
 }

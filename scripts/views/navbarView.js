@@ -8,10 +8,6 @@ function UpdateNavbar() {
       iconName: 'home',
       page: 'Dashboard'
     },
-    notifications: {
-      iconName: 'notifications',
-      className: 'notification-icon'
-    },
     logout: {
       onClick: 'logout()',
       iconName: 'logout',
@@ -30,7 +26,6 @@ function UpdateNavbar() {
         ${iconRedirectButtonHTML(iconInputs.profile)}
         ${iconButtonHTML(iconInputs.logout)}
         ${iconRedirectButtonHTML(iconInputs.dashboard)}
-        ${iconHTML(iconInputs.notifications)}
         ${iconRedirectButtonHTML(iconInputs.grouplist)}
         ${iconRedirectButtonHTML(iconInputs.survey)}
     </nav>
