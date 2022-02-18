@@ -11,10 +11,20 @@
     font-weight: 500;
 }
 
+.information-card > div {
+    padding: 0.4rem 0;
+}
+
 .information-card:hover {
-    background-color: rgba(54, 100, 136, 0.25);
+    opacity: 0.85;
     cursor: pointer;
 }
+
+
+p {
+    font-weight: 400;
+} 
+
 
 .information-card > img {
     width: 100%;
@@ -59,6 +69,9 @@
     border-radius: 0.25rem;
     margin: 0;
     font-weight: 500;
+    grid-template-columns: auto auto;
+    opacity: 90%;
+    align-items: center;
 }
 
 h3 {

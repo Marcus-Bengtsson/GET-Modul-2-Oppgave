@@ -1,9 +1,11 @@
 function navbarCardUser() {
+  const user = getUserFromID(model.app.userLoggedInId);
+  const avatar = getObjFromID(user.avatarId, model.data.avatars);
   return /*html*/`
     <div class="navbar-card">
-      <img/>
+    ${avatarHTML(avatar)}
       <div>
-          <h3>Hei ${getUserFromID(model.app.userLoggedInId).firstName}!</h3>
+          <h3>Hei ${user.firstName}!</h3>
           <p>Velkommen til din side</p>
       </div>
   </div>`
@@ -12,7 +14,6 @@ function navbarCardUser() {
 function navbarCard(tittel, beskrivelse) {
   return /*html*/`
     <button class="navbar-card">
-      <img/>
       <div>
           <h3>${tittel}</h3>
           <p>${beskrivelse}</p>

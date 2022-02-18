@@ -1,6 +1,4 @@
 function selectAvatar(imageId) {
-    model.data.users.avatarId = imageId;
-    return imageId;
+    getUserFromID(model.app.userLoggedInId).avatarId = imageId;
+    updateMainView();
 }  
-
-// pushe inn i avatarId?

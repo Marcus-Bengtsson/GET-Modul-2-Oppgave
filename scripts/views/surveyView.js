@@ -17,7 +17,7 @@ function updateSurveyPageView() {
   const surveyViewInputs = {
     header: {
       title: surveyPage.title,
-      subTitle: `part ${surveyPage.pageNumber} of ${surveyPage.lastPageNumber}`,
+      subTitle: `Side ${surveyPage.pageNumber} av ${surveyPage.lastPageNumber}`,
       headerTitle: template.pages[surveyPage.pageNumber-1].title,
     },
     comments: {

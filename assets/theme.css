@@ -3,7 +3,7 @@
 /* ---------- */
 
 :root {
-  --background: url("./images/Background.webp");
+  --background: url("./images/backgrund.png");
   --title-text: rgb(44, 44, 44);
 }
 
@@ -14,8 +14,8 @@
   background-image: var(--background);
 
   /* Add the blur effect */
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  /*filter: blur(2px);
+  -webkit-filter: blur(2px);*/
   z-index: -1;
 
   /* Full height */

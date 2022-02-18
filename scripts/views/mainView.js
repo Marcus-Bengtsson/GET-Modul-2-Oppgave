@@ -1,5 +1,5 @@
 const appElement = document.getElementById('app');
-let showDevTools = true;
+let showDevTools = false;
 
 updateMainView();
 

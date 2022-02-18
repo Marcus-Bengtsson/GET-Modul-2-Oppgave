@@ -32,7 +32,7 @@ function setupSurvey() {
     return;
   }
   CreateSurvey(1);
-  surveyPage.answers = new Array(32).fill(2, 0);
+  surveyPage.answers = new Array(32).fill(0, 0);
 }
 
 // setAnswerValue(questionNumber, value)
@@ -59,8 +59,10 @@ function parseQuestion(question) {
 }
 
 function getSurveyTitle() {
+  
   let survey = getObjFromID(model.inputs.surveyPage.surveyId, model.data.surveys);
-  return `Survey: ${survey.date}`
+  const date = new Date(survey.date);
+  return `Undersøkelse ${date.toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' })}`
 }
 
 function parseTemplateForCalculation(template) {

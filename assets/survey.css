@@ -4,6 +4,7 @@
 }
 
 .survey-header {
+  margin-top: 2rem;
   color: hsl(0, 0%, 3%);
   display: flex;
   width: 65rem;
