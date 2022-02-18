@@ -9,3 +9,13 @@
   width: 80rem;
   text-align: start;
 }
+
+.group-list-buttons {
+  display: flex;
+  gap: 1rem;
+  
+}
+
+.group-list-buttons > :first-of-type {
+  margin-left: auto;
+}

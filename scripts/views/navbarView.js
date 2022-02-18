@@ -19,6 +19,9 @@ function UpdateNavbar() {
     survey: {
       iconName: 'poll',
       page: 'SurveyPage',
+    },
+    logo: {
+      url: 'assets/Logo.svg'
     }
   }
   return /*html*/`
@@ -28,6 +31,7 @@ function UpdateNavbar() {
         ${iconRedirectButtonHTML(iconInputs.dashboard)}
         ${iconRedirectButtonHTML(iconInputs.grouplist)}
         ${iconRedirectButtonHTML(iconInputs.survey)}
+        <div class="logo">${avatarHTML(iconInputs.logo)}</div>
     </nav>
     `
 }

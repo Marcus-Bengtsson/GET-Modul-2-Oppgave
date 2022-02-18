@@ -27,3 +27,14 @@
 .icon-button:hover {
     background-color: transparent;
 }
+
+.logo {
+    margin-right: auto;
+}
+
+.logo > img {
+    height: 4rem;
+    padding: 0.5rem;
+    color: var(--title-text);
+    opacity: 80%
+}

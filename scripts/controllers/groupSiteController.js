@@ -27,19 +27,16 @@ function generateDonutChart(survey) {
             plugins: {
                 legend: {
                     labels: {
-                        color: 'white',
+                        color: 'dark grey',
                         font: { size: 20, },
                     },
                     position:
                         'right',
                     title: {
-                        color: 'white',
+                        color: 'dark grey',
                         display: true,
                         text: 'Forrige undersøkelse',
-                        font: {
-                            family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-                            size: 17.5,
-                        },
+                        font: {family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", size: 17.5,},
                     },
                 },
             },
@@ -66,25 +63,25 @@ function generateLineChart() {
             scales: {
                 x: {
                     ticks: {
-                        color: "#FFFFFF"
+                        color: "dark grey"
                     },
                     grid: {
-                        color: "#FFFFFF"
+                        color: "dark grey"
                       }, 
                 },
                 y: {
                     ticks: {
-                        color: "#FFFFFF"
+                        color: "dark grey"
                     },
                     grid: {
-                        color: "#FFFFFF"
+                        color: "dark grey"
                       }, 
                 },
             },
             plugins: {
                 legend: {
                     labels: {
-                        color: 'white',
+                        color: 'dark grey',
                         font: { size: 17, },
                     },
 
@@ -106,7 +103,7 @@ function generateGroupSiteLineChartData() {
         };
     };
     for (let i = 0; i < 4; i++) {
-        let stage = model.data.stageData[i];
+        const stage = model.data.stageData[i];
         datasets.push({
             label: stage.id,
             data: dataList[i],

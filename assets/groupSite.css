@@ -62,6 +62,7 @@
   height: 2;
 }
 .group-site-lineChart {
+  width: 800px;
   grid-area: utvikling;
   padding-top: 70px;
 }
@@ -88,9 +89,9 @@
   border: 1px solid var(--title-text);
   background-color: white;
   opacity: 80%;
-  padding: 10px 15px;
+  padding: 15px 15px;
   padding-bottom: 5px;
   border-radius: 0.5rem;
   width: 250px;
-  height: 90px;
+  height: 5rem;
 }

@@ -26,11 +26,11 @@ function generateFieldsAndSelectChecked(inputObj) {
 
 function surveyHeader(inputObj) {
   return /*html*/ `
-  <h1>${inputObj.title}</h1>
-  <h2>${inputObj.subTitle}</h2>
+  <h1 style="font-weight: 500; color: rgb(60, 60, 60);">${inputObj.title}</h1>
+  <p>${inputObj.subTitle}</p>
   <section>
     <header class="survey-header">
-      <h3>${inputObj.headerTitle}</h3>
+      <h3></h3>
       <div class="description-titles">
         <h4 class="answerOne">Nesten aldri</h4>
         <h4 class="answerTwo">Sjeldent</h4>
