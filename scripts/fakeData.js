@@ -27,7 +27,7 @@ function randomNumberString(min, max, numberList = numberArray) {
 }
 
 function getNewDate(date, days) {
-  return new Date(date).getMilliseconds() + (days * 86400000);
+  return  new Date(date).getTime() + (days * 86400000);
 }
 
 
@@ -60,6 +60,9 @@ const fakeData = {
       roleId,
       avatarId,
     }
+  },
+  users(firstId, roleId, amount) {
+
   },
   group({id, userIds, managerIds, intervals, startDate, deadline}) {
     return {
@@ -115,4 +118,10 @@ const fakeData = {
     }
     return surveys;
   }
+}
+
+
+const newSurveys = fakeData.surveys(3, 1, 14, 5, new Date().toISOString().split('T')[0]);
+for (const survey of newSurveys) {
+  model.data.surveys.push(survey);
 }

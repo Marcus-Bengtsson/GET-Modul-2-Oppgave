@@ -1,81 +1,79 @@
 function updateSurveyPageView() {
-  const surveyPage = model.inputs.surveyPage;
-  const template = model.data.templates[0];
-  if(surveyPage.surveyId == null) setupSurvey();
-  surveyPage.lastPageNumber = template.pages.length;
-  surveyPage.title = getSurveyTitle();
- 
-  const navigationButtons = {
-    nextButton: `<button onclick="nextPage()">Neste</button>`,
-    finishButton: `<button onclick="handleSurveyFinished()">Fullfør</button>`,
-    previousButton: `<button onclick="previousPage()">Forrige</button>`,
-    cancelButton: `<button onclick="redirectToPage('Dashboard')">Avbryt</button>`,
+  const surveyInput = model.inputs.surveyPage;
+  if (surveyInput.surveyId == null) {
+    setupEmptySurvey();
   }
-
-  let questionList = generateQuestions(template.pages[surveyPage.pageNumber-1].questions);
   
-  const surveyViewInputs = {
+  const surveyTemplate = model.data.templates[0];
+  surveyInput.lastPageNumber = surveyTemplate.pages.length;
+
+  const componentInputs = {
     header: {
-      title: surveyPage.title,
-      subTitle: `Side ${surveyPage.pageNumber} av ${surveyPage.lastPageNumber}`,
-      headerTitle: template.pages[surveyPage.pageNumber-1].title,
+      title: surveyInput.title,
+      subTitle: `Side ${surveyInput.pageNumber} av ${surveyInput.lastPageNumber}`,
     },
     comments: {
-        labelText: 'Kommentar',
-        value: surveyPage.commentText,
-        onChange: 'model.inputs.surveyPage.commentText = this.value',
-        columns: 20,
-        rows: 10, 
+      labelText: 'Kommentar',
+      value: surveyInput.commentText,
+      onChange: 'updateSurveyInputComment(this.value)',
+      columns: 20,
+      rows: 10,
     },
     anonymousInput: {
       labelText: 'Anonym kommentar',
-      onChange: 'model.inputs.surveyPage.commentIsAnonymous = this.checked',
-      isChecked: surveyPage.commentIsAnonymous,
+      onChange: 'updateSurveyInputAnonymousInput(this.checked)',
+      isChecked: surveyInput.commentIsAnonymous,
     }
   };
 
-  const commentSection = `
-    ${textAreaWithLabelHTML(surveyViewInputs.comments)}
-    ${inputCheckboxWithLabelHTML(surveyViewInputs.anonymousInput)}
-  `
-  console.log(model.inputs.surveyPage.answers);
+  const pageElements = getPageElements(componentInputs);
+  let pageQuestions = surveyTemplate.pages[surveyInput.pageNumber - 1].questions;
+  surveyInput.title = getSurveyTitle(getCurrentSurvey());
+
   return /*html*/ `
   <div class="survey-page">
   <section>
     <header>
-      ${surveyHeader(surveyViewInputs.header)}
+      ${surveyHeader(componentInputs.header)}
     </header>
       <ul class="survey-questions">
-        ${questionsToHTML(questionList)}
-        <li>${isLastPage() ?  commentSection : ''}</li>
+        ${questionsToHTML(pageQuestions)}
+        <li>${pageElements.commentSection}</li>
       </ul>
     </section>
     <div class="survey-buttons">
-      ${isFirstPage() ? navigationButtons.cancelButton : navigationButtons.previousButton}
-      ${isLastPage() ? navigationButtons.finishButton : navigationButtons.nextButton}
+      ${pageElements.footerLeftButton}
+      ${pageElements.footerRightButton}
     </div>
   </div>
   `;
 }
 
-function questionsToHTML(questionList) {
-  let html = "";
-  for (const question of questionList) {
-    html += surveyQuestionCardHTML(question);
+function getPageElements(surveyViewInputs) {
+  const commentSection = isLastSurveyPage() ? `${textAreaWithLabelHTML(surveyViewInputs.comments)}
+  ${inputCheckboxWithLabelHTML(surveyViewInputs.anonymousInput)}` : '';
+  
+  const footerLeftButton = isFirstSurveyPage() ? `<button onclick="redirectToPage('Dashboard')">Avbryt</button>` :
+    `<button onclick="previousSurveyPage()">Forrige</button>`;
+  const footerRightButton = isLastSurveyPage() ? `<button onclick="handleSurveyFinished()">Fullfør</button>` 
+  : `<button onclick="nextSurveyPage()">Neste</button>`;
+  return {
+    footerLeftButton,
+    footerRightButton,
+    commentSection
   }
-  return html;
 }
 
-function generateQuestions(questionArray) {
-  let input = [];
+function questionsToHTML(questionArray) {
+  let html = "";
   for (let i = 0; i < questionArray.length; i++) {
     const question = parseQuestion(questionArray[i]);
-    input.push({
+    html += surveyQuestionCardHTML({
       questionText: question.text,
-      onChange: `setAnswerValue(${question.number}, parseInt(this.value, 10))`, // setAnswerValue() `
+      onChange: `setAnswerValue(${question.number}, Number(this.value))`,
       radioName: `answer${i}`,
-      checkedRadio: `${model.inputs.surveyPage.answers[question.number-1]}`,
-    });
+      checkedRadio: `${getAnswerValue(question.number)}`,
+    })
   }
-  return input;
+  return html;
 }
