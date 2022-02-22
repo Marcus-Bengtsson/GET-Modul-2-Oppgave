@@ -11,9 +11,9 @@ function navbarCardUser() {
   </div>`
 }
 
-function navbarCard(tittel, beskrivelse) {
+function navbarCard(tittel, beskrivelse, onClick = "") {
   return /*html*/`
-    <button class="navbar-card">
+    <button onclick="${onClick}" class="navbar-card">
       <div>
           <h3>${tittel}</h3>
           <p>${beskrivelse}</p>

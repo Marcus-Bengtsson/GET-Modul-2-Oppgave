@@ -1,6 +1,7 @@
 .group-site-gridContainer {
   padding: 60px 70px;
   width: 100%;
+  max-width: 105rem;
   height: 100%;
   column-gap: 2rem;
   overflow: hidden;

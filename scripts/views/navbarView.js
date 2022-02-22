@@ -21,7 +21,7 @@ function UpdateNavbar() {
       page: 'SurveyPage',
     },
     logo: {
-      url: 'assets/Logo.svg'
+      url: 'assets/Starling.svg'
     }
   }
   return /*html*/`

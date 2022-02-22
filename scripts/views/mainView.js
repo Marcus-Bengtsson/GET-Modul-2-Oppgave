@@ -1,5 +1,5 @@
 const appElement = document.getElementById('app');
-let showDevTools = false;
+let showDevTools = true;
 
 updateMainView();
 
@@ -34,7 +34,10 @@ function updateMainView() {
     </main>`;
     if (appPage == 'GroupSite') {
       new Chart('group-site-donutChart', generateDonutChart(getMostRecentSurveyFromGroupId(model.inputs.groupSite.groupId)));
-      new Chart('group-site-lineChart', generateLineChart()); 
+      new Chart('group-site-lineChart', generateGroupSiteLineChart()); 
+    }
+    if (appPage == 'GroupComparison') {
+      generateComparisonLineCharts();
     }
 }
 

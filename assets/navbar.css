@@ -30,11 +30,11 @@
 
 .logo {
     margin-right: auto;
+    height: 2rem;
 }
 
 .logo > img {
-    height: 4rem;
-    padding: 0.5rem;
+    height: 2rem;
     color: var(--title-text);
     opacity: 80%
 }

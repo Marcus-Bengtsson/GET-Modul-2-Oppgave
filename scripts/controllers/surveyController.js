@@ -1,68 +1,62 @@
-function nextPage() {
+// Survey page navigation
+
+function nextSurveyPage() {
   const surveyPage = model.inputs.surveyPage;
   surveyPage.pageNumber += 1;
   updateMainView();
 }
 
-function previousPage() {
+function previousSurveyPage() {
   const surveyPage = model.inputs.surveyPage;
   surveyPage.pageNumber -= 1;
   updateMainView();
 }
 
-function isFirstPage() {
-  const surveyPage = model.inputs.surveyPage;
-  if (surveyPage.pageNumber === 1) {
-    return true;
-  }
-  return false;
+function isFirstSurveyPage() {
+  return model.inputs.surveyPage.pageNumber == 1;
 }
 
-function isLastPage() {
-  const surveyPage = model.inputs.surveyPage;
-  if (surveyPage.pageNumber == surveyPage.lastPageNumber) {
-    return true;
-  }
-  return false;
+function isLastSurveyPage() {
+  return model.inputs.surveyPage.pageNumber == model.inputs.surveyPage.lastPageNumber;
 }
 
-function setupSurvey() {
-  const surveyPage = model.inputs.surveyPage;
-  if (surveyPage.surveyId != null) {
-    return;
-  }
-  CreateSurvey(1);
-  surveyPage.answers = new Array(32).fill(0, 0);
-}
-
-// setAnswerValue(questionNumber, value)
-function setAnswerValue(questionNumber, value) {
-  const surveyPage = model.inputs.surveyPage;
-  surveyPage.answers[questionNumber - 1] = value;
-}
+// Survey questions
 
 function parseQuestion(question) {
-  // example of question "32: We get a lot of work done." 
   let splitQuestionArray = question.split(':');
-  // returns ["32", "We get a lot of work done."]
-  let questionNumber = parseInt(splitQuestionArray[0], 10);
-  // returns 32 as int
-
-  if (questionNumber === NaN) {
-    return null;
-  }
-
   return {
-    number: questionNumber,
+    number: Number(splitQuestionArray[0]),
     text: splitQuestionArray[1]
   }
 }
 
-function getSurveyTitle() {
-  
-  let survey = getObjFromID(model.inputs.surveyPage.surveyId, model.data.surveys);
-  const date = new Date(survey.date);
-  return `Undersøkelse ${date.toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' })}`
+function setAnswerValue(questionNumber, value) {
+  model.inputs.surveyPage.answers[questionNumber - 1] = value;
+}
+
+function getAnswerValue(questionNumber) {
+  return model.inputs.surveyPage.answers[questionNumber - 1];
+}
+
+function updateSurveyInputComment(value) {
+  model.inputs.surveyPage.commentText = value;
+}
+
+function updateSurveyInputAnonymousInput(checked) {
+  model.inputs.surveyPage.commentIsAnonymous = checked;
+}
+
+function setupEmptySurvey() {
+  CreateSurvey(1);
+  model.inputs.surveyPage.answers = new Array(32).fill(0, 0);
+}
+
+function getCurrentSurvey() {
+  return getObjFromID(model.inputs.surveyPage.surveyId, model.data.surveys);
+}
+
+function getSurveyTitle(survey) {
+  return `Undersøkelse ${new Date(survey.date).toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' })}`
 }
 
 function parseTemplateForCalculation(template) {

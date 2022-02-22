@@ -12,7 +12,7 @@
 }
 
 .information-card > div {
-    padding: 0.4rem 0;
+    padding: 0.425rem 0;
 }
 
 .information-card:hover {
@@ -28,7 +28,7 @@ p {
 
 .information-card > img {
     width: 100%;
-    height: 10rem;
+    height: 11rem;
     border-radius: 0.25rem;
     object-fit: cover;
 }
@@ -39,19 +39,18 @@ p {
     grid-template-areas: 'menu information';
     grid-template-columns: 1fr 3fr;
     gap: 2rem;
+    align-items: start;
 }
 
 .navMenu {
     grid-area: menu;
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
     gap: 0.5rem;
 }
 
 .information {
     grid-area: information;
-  
 }
 
 .information-cards {
