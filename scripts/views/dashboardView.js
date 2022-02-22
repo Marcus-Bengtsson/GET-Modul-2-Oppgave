@@ -3,8 +3,8 @@ function updateDashboardView () {
     <div class="grid-dashboard">
       <nav class="navMenu" aria-label="cards">
           ${navbarCardUser()}
-          ${navbarCard("Dine grupper", "Her er dine grupper")}
-          ${navbarCard("Undersøkelser", "Din neste undersøkelse er i morgen")}
+          ${navbarCard("Dine grupper", "Her er dine grupper", "redirectToPage('GroupList')")}
+          ${navbarCard("Undersøkelser", "Din neste undersøkelse er i morgen", "redirectToPage('SurveyPage')")}
           ${navbarCard("Alle grupper (Admin)", "Alle grupper")}
       </nav>
       <article class="information">

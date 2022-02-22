@@ -6,6 +6,7 @@ function updateSurveyPageView() {
   
   const surveyTemplate = model.data.templates[0];
   surveyInput.lastPageNumber = surveyTemplate.pages.length;
+  surveyInput.title = getSurveyTitle(getCurrentSurvey());
 
   const componentInputs = {
     header: {
@@ -28,7 +29,6 @@ function updateSurveyPageView() {
 
   const pageElements = getPageElements(componentInputs);
   let pageQuestions = surveyTemplate.pages[surveyInput.pageNumber - 1].questions;
-  surveyInput.title = getSurveyTitle(getCurrentSurvey());
 
   return /*html*/ `
   <div class="survey-page">

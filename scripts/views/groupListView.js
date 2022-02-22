@@ -2,7 +2,6 @@ function updateGroupListView () {
     let html = `<div class="group-list">
     <h1>Gruppeoversikt<h1>
     <div class="group-list-buttons">
-        <button onclick="">Last ned PDF</button>
         <button onclick="redirectToPage('GroupComparison')">Sammenlign</button>
         <button onclick="redirectToPage('GroupEdit')">Rediger</button>
         <button onclick="redirectToPage('GroupNew')">Lag ny</button>
