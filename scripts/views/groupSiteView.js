@@ -1,14 +1,21 @@
 function updateGroupSiteView() {
+    let hasManagerAccess = false;
+    if (getRoleFromUserID(model.app.userLoggedInId).id !== 2) {
+        hasManagerAccess = true;
+    }
     if (model.inputs.groupSite.groupId === null) model.inputs.groupSite.groupId = 0;
     const group = getGroupFromGroupId(model.inputs.groupSite.groupId);
     let html = `
     <div class="group-site-gridContainer">
-    <div class="group-site-buttons">
-        <button onclick="">Send undersøkelse</button>
-        <button onclick="redirectToPage('Comments')">Kommentarer</button>
-        <button onclick="">Last ned PDF</button>
-        <button onclick="redirectToPage('GroupSiteEdit')">Rediger</button>
-    </div>
+    ${hasManagerAccess ? `
+        <div class="group-site-buttons">
+            <button onclick="">Send undersøkelse</button>
+            <button onclick="redirectToPage('Comments')">Kommentarer</button>
+            <button onclick="">Last ned PDF</button>
+            <button onclick="redirectToPage('GroupSiteEdit')">Rediger</button>
+        </div>`
+            : ""}
+    
     <h1 class="group-site-h1">${group.name}</h1>
     <div class="group-site-description">${group.description}</div>
         <div class="group-site-interval">
