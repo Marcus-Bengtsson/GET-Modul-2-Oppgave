@@ -19,3 +19,11 @@
 .group-list-buttons > :first-of-type {
   margin-left: auto;
 }
+.group-list-name:hover {
+  background-color: rgba(54, 100, 136, 0.25);
+  cursor: pointer;
+}
+.group-list-nextSurvey:hover {
+  background-color: rgba(54, 100, 136, 0.25);
+  cursor: pointer;
+}

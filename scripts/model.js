@@ -27,7 +27,6 @@ const model = {
     },
     groupComparison: {
       groupIds: [],
-      hiddenGroupIds: [],
     },
     groupNew: {
       name: '',
@@ -96,7 +95,7 @@ const model = {
         lastName: 'Holm',
         email: 'nora@example.com',
         password: 'N0tS4f3Pass_',
-        roleId: 2, // user
+        roleId:2, // user
         avatarId: 3,
       },
       {
@@ -105,7 +104,7 @@ const model = {
         lastName: 'Nordmann',
         email: 'ola@example.com',
         password: 'N0rdp@ssw0rd99_',
-        roleId: 1, // user
+        roleId: 0, 
         avatarId: 3,
       },
       {
@@ -114,7 +113,7 @@ const model = {
         lastName: 'Test',
         email: 'test@example.com',
         password: 'N0rdp@ssw0rd99_',
-        roleId: 2, // user
+        roleId: 1, // user
         avatarId: 2,
       }
     ],
@@ -126,97 +125,83 @@ const model = {
     groups: [
       {
         id: 0,
-        name: 'Gruppe 1',
-        description: 'Beskrivelse av gruppe 1',
+        name: 'M2 Team 1',
+        description: 'Team 1 fra modul 2 i GET Academy',
         intervals: 7,
         startDate: "2022-01-22",
         deadline: 3,
-        userIds: [0, 1],
-        managerIds: [0, 1, 3],
+        userIds: [],
+        managerIds: [1, 2],
       },
       {
         id: 1,
-        name: 'Gruppe 2',
-        description: 'Beskrivelse av gruppe 2',
+        name: 'M2 Team 2',
+        description: 'Team 2 fra modul 2 i GET Academy',
         intervals: 14,
         startDate: "2022-01-23",
         deadline: 4,
-        userIds: [1, 2],
-        managerIds: [0, 1, 3],
+        userIds: [],
+        managerIds: [1, 2],
       },
       {
         id: 2,
-        name: 'Gruppe 3',
-        description: 'Beskrivelse av gruppe 3',
+        name: 'M2 Team 3',
+        description: 'Team 3 fra modul 2 i GET Academy',
         intervals: 14,
         startDate: "2022-02-07",
         deadline: 3,
-        userIds: [0, 2],
-        managerIds: [0, 1, 3],
-      },
-      {
-        id: 4,
-        name: 'Gruppe 4',
-        description: 'Beskrivelse av gruppe 4',
-        intervals: 14,
-        startDate: "2022-02-11",
-        deadline: 4,
-        userIds: [1, 2],
-        managerIds: [0, 1, 3],
+        userIds: [],
+        managerIds: [1, 2],
       },
     ],
     surveys: [
-      {
-        id: 0,
-        groupId: 0,
-        date: "2022-01-31",
-        totalAnswers: 2,
-        totalScores: [17, 23, 10, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
-        stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
-        averageScores: [8.5, 11.5, 5, 7],
-        isInterval: true,
-      },
-      {
-        id: 1,
-        groupId: 0,
-        date: "2022-02-07",
-        totalAnswers: 2,
-        totalScores: [12, 26, 8, 9, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
-        stageNames: ['Forming', 'Storming', 'Norming', 'Performing', 'Cohesion'],
-        averageScores: [6, 13, 4, 4.5, 7],
-        isInterval: true,
-      },
-      {
-        id: 2,
-        groupId: 0,
-        date: "2022-02-14",
-        totalAnswers: 3,
-        totalScores: [30, 18, 16, 20], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
-        stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
-        averageScores: [10, 6, 5.33, 6.66],
-        isInterval: true,
-      },
+      // {
+      //   id: 0,
+      //   groupId: 0,
+      //   date: "2022-01-31",
+      //   totalAnswers: 2,
+      //   totalScores: [17, 23, 10, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
+      //   stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
+      //   averageScores: [8.5, 11.5, 5, 7],
+      //   isInterval: true,
+      // },
+      // {
+      //   id: 1,
+      //   groupId: 0,
+      //   date: "2022-02-07",
+      //   totalAnswers: 2,
+      //   totalScores: [12, 26, 8, 9, 14], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
+      //   stageNames: ['Forming', 'Storming', 'Norming', 'Performing', 'Cohesion'],
+      //   averageScores: [6, 13, 4, 4.5, 7],
+      //   isInterval: true,
+      // },
+      // {
+      //   id: 2,
+      //   groupId: 0,
+      //   date: "2022-02-14",
+      //   totalAnswers: 3,
+      //   totalScores: [30, 18, 16, 20], //index 0 = forming, 1 = storming, 2 = norming, 3 = performing
+      //   stageNames: ['Forming', 'Storming', 'Norming', 'Performing'],
+      //   averageScores: [10, 6, 5.33, 6.66],
+      //   isInterval: true,
+      // },
     ],
     stageData: [
       {
-        id: 'Forming',
+        id: 'forming',
         color: '255, 99, 132',
       },
       {
-        id: 'Storming',
+        id: 'storming',
         color: '255, 205, 86',
       },
       {
-        id: 'Norming',
+        id: 'norming',
         color: '100, 150, 86',
       },
       {
-        id: 'Performing',
+        id: 'performing',
         color: '75, 192, 192',
-      },
-      {
-        id: 'Cohesion',
-        color: '10, 120, 86',
       },
     ],
     comments: [

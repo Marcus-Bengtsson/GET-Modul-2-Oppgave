@@ -27,7 +27,7 @@ function randomNumberString(min, max, numberList = numberArray) {
 }
 
 function getNewDate(date, days) {
-  return  new Date(date).getTime() + (days * 86400000);
+  return  new Date(date).getTime() - (days * 86400000);
 }
 
 
@@ -60,9 +60,6 @@ const fakeData = {
       roleId,
       avatarId,
     }
-  },
-  users(firstId, roleId, amount) {
-
   },
   group({id, userIds, managerIds, intervals, startDate, deadline}) {
     return {
@@ -109,19 +106,113 @@ const fakeData = {
     let surveys = [];
     let currentId = firstId;
     let currentDate = startDate;
-    let days = 0;
     for (let i = 0; i < amount; i++) {
-        days = i > 0 ? days + intervals : days;
-        currentDate = i > 0 ? new Date(getNewDate(currentDate, days)).toISOString().split('T')[0] : currentDate;
+        currentDate = i == 0 ? new Date(currentDate).toISOString().split('T')[0] : new Date(getNewDate(currentDate, intervals)).toISOString().split('T')[0];
         surveys.push(fakeData.survey(currentId, groupId, currentDate, 5));
         currentId++;
     }
-    return surveys;
+    return surveys.reverse();
   }
 }
 
+let globalFirstId = 0;
 
-const newSurveys = fakeData.surveys(3, 1, 14, 5, new Date().toISOString().split('T')[0]);
-for (const survey of newSurveys) {
+const newSurvey1 = fakeData.surveys(globalFirstId, 0, 7, 6, new Date().toISOString().split('T')[0]);
+globalFirstId += 6;
+for (const survey of newSurvey1) {
   model.data.surveys.push(survey);
 }
+
+const newSurvey2 = fakeData.surveys(globalFirstId, 1, 14, 5, getNewDate(new Date().toISOString().split('T')[0], 2));
+globalFirstId += 5;
+for (const survey of newSurvey2) {
+  model.data.surveys.push(survey);
+}
+
+const newSurvey3 = fakeData.surveys(globalFirstId, 2, 14, 7, new Date().toISOString().split('T')[0]);
+for (const survey of newSurvey3) {
+  model.data.surveys.push(survey);
+}
+
+const userListExample = [
+  {
+    firstName: 'Anders',
+    lastName: 'A',
+    groupId: 0
+  },
+  {
+    firstName: 'Carina',
+    lastName: 'B',
+    groupId: 0
+  },
+  {
+    firstName: 'Geir',
+    lastName: 'S',
+    groupId: 0
+  },
+  {
+    firstName: 'Pathom',
+    lastName: 'S',
+    groupId: 0
+  },
+  {
+    firstName: 'Lillie',
+    lastName: 'R',
+    groupId: 1
+  },
+  {
+    firstName: 'Marius',
+    lastName: 'H',
+    groupId: 1
+  },
+  {
+    firstName: 'Marcus',
+    lastName: 'B',
+    groupId: 1
+  },
+  {
+    firstName: 'Elisabeth',
+    lastName: 'H',
+    groupId: 1
+  },
+  {
+    firstName: 'Anders',
+    lastName: 'K',
+    groupId: 2
+  },
+  {
+    firstName: 'Magnus',
+    lastName: 'K',
+    groupId: 2
+  },
+  {
+    firstName: 'Alexander',
+    lastName: 'B',
+    groupId: 2
+  },
+  {
+    firstName: 'Linn',
+    lastName: 'Ø',
+    groupId: 2
+  },
+]
+
+function generateUsers() {
+  let nextId = 3;
+  for (const user of userListExample) {
+    let group = getObjFromID(user.groupId, model.data.groups);
+    group.userIds.push(nextId);
+    model.data.users.push({
+      id: nextId,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: fakeData.email(),
+      password: fakeData.password(),
+      roleId: 2,
+      avatarId: 3
+    })
+    nextId++;
+  }
+}
+
+generateUsers();

@@ -18,7 +18,7 @@ function listOfPages() {
 
 function listOfUsers() {
     const users = [{
-        id: 0,
+        id: 7,
         name: 'User'
     },
     {
