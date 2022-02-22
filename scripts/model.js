@@ -9,7 +9,8 @@ const model = {
   // input
   inputs: {
     devTools: {
-      isOpen: false,
+      dropdownPage: '',
+      dropdownUser: ''
     },
     groupList: {
       markedGroupIds: [],
@@ -96,7 +97,7 @@ const model = {
         email: 'nora@example.com',
         password: 'N0tS4f3Pass_',
         roleId: 2, // user
-        avatarId: 0,
+        avatarId: 3,
       },
       {
         id: 1,
@@ -114,7 +115,7 @@ const model = {
         email: 'test@example.com',
         password: 'N0rdp@ssw0rd99_',
         roleId: 2, // user
-        avatarId: 1,
+        avatarId: 2,
       }
     ],
     roles: [
