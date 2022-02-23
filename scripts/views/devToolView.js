@@ -73,6 +73,8 @@ function popUp() {
         </div>
         <p>Model: </p>
         ${modelDetails()}
+        <input type="text" value="lise@example.com" id="" />
+        <input type="text" value="N0rdp@ssw0rd99_" id="" />
     </div>`;
 }
 

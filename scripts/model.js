@@ -91,27 +91,27 @@ const model = {
     users: [
       {
         id: 0,
-        firstName: 'Nora',
-        lastName: 'Holm',
-        email: 'nora@example.com',
+        firstName: 'Geir',
+        lastName: 'S',
+        email: 'geir@example.com',
         password: 'N0tS4f3Pass_',
-        roleId:2, // user
+        roleId: 2, // user
         avatarId: 3,
       },
       {
         id: 1,
-        firstName: 'Ola',
-        lastName: 'Nordmann',
-        email: 'ola@example.com',
+        firstName: 'Lise',
+        lastName: 'G',
+        email: 'lise@example.com',
         password: 'N0rdp@ssw0rd99_',
-        roleId: 0, 
+        roleId: 1, 
         avatarId: 3,
       },
       {
         id: 2,
-        firstName: 'Test',
-        lastName: 'Test',
-        email: 'test@example.com',
+        firstName: 'Terje',
+        lastName: 'K',
+        email: 'terje@example.com',
         password: 'N0rdp@ssw0rd99_',
         roleId: 1, // user
         avatarId: 2,

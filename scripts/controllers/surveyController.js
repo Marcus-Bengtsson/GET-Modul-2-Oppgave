@@ -47,7 +47,7 @@ function updateSurveyInputAnonymousInput(checked) {
 }
 
 function setupEmptySurvey() {
-  CreateSurvey(1);
+  
   model.inputs.surveyPage.answers = new Array(32).fill(0, 0);
 }
 
@@ -55,8 +55,8 @@ function getCurrentSurvey() {
   return getObjFromID(model.inputs.surveyPage.surveyId, model.data.surveys);
 }
 
-function getSurveyTitle(survey) {
-  return `Undersøkelse ${new Date(survey.date).toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' })}`
+function getSurveyTitle() {
+  return `Undersøkelse ${new Date().toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' })}`
 }
 
 function parseTemplateForCalculation(template) {
@@ -138,7 +138,7 @@ function handleSurveyFinished() {
   
   let indexTemplate = parseTemplateForCalculation(model.data.templates[0]);
   let calculatedTotalScore = CalculateTotalScore(indexTemplate, surveyPage.answers);
-  
+  CreateSurvey(1);
   let survey = getObjFromID(surveyPage.surveyId, model.data.surveys);
   
   survey.totalScores = addValuesToArray(survey.totalScores, calculatedTotalScore.totalScores)

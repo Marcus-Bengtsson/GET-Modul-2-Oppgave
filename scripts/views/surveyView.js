@@ -6,7 +6,7 @@ function updateSurveyPageView() {
   
   const surveyTemplate = model.data.templates[0];
   surveyInput.lastPageNumber = surveyTemplate.pages.length;
-  surveyInput.title = getSurveyTitle(getCurrentSurvey());
+  surveyInput.title = getSurveyTitle();
 
   const componentInputs = {
     header: {
