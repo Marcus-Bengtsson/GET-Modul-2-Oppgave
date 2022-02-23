@@ -1,76 +1,98 @@
 function generateComparisonLineCharts() {
-    let stageIndex = 0;
+  let stageIndex = 0;
   for (stage of model.data.stageData) {
     new Chart(
       `group-comparison-${stage.id}-lineChart`,
       generateComparisonLineChartObject(stage, stageIndex));
-      stageIndex++;
+    stageIndex++;
   }
 }
 
 
 
 function generateComparisonLineChartObject(stage, stageIndex) {
-    const lineChart = {
-        type: "line",
-        data: {
-          datasets: generateComparisonLineChartData(stage, stageIndex),
-        },
-        options: {
-          backgroundColor: "white",
-          scales: {},
-          scales: {
-            x: {
-              ticks: {
-                color: "dark grey",
-              },
-              grid: {
-                color: "dark grey",
-              },
-            },
-            y: {
-              ticks: {
-                color: "dark grey",
-              },
-              grid: {
-                color: "dark grey",
-              },
-            },
+  const lineChart = {
+    type: "line",
+    data: {
+      datasets: generateComparisonLineChartData(stageIndex),
+    },
+    options: {
+      backgroundColor: "white",
+      elements: {
+        point: {
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointHitRadius: 6,
+      }
+    },
+      scales: {
+        x: {
+          title: {
+            text: "Antall undersøkelser",
+            display: true,
+            font: {size: 15, family: "Poppins",}
           },
-          plugins: {
-            legend: {
-              labels: {
-                color: "dark grey",
-                font: { size: 17 },
-              },
-            },
+          ticks: {
+            color: "dark grey",
+          },
+          grid: {
+            color: "dark grey",
           },
         },
-      };
-      return lineChart;
+        y: {
+          title: {
+            text: "Poeng",
+            display: true,
+            font: {size: 15, family: "Poppins",}
+          },
+          ticks: {
+            color: "dark grey",
+          },
+          grid: {
+            color: "dark grey",
+          },
+        },
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: stage.id,
+          color: 'dark grey',
+          font: {size: 25, family: "Poppins", weight: '400',}
+        },
+        legend: {
+          labels: {
+            color: "dark grey",
+
+            font: {size: 17, family: "Poppins"},
+          },
+        },
+      },
+    },
+  };
+  return lineChart;
 }
 
-function generateComparisonLineChartData(stage, stageIndex) {
-    const selectedGroups = [];
-    const dataList = [];
-    for (groupId of model.inputs.groupComparison.groupIds) {
-        selectedGroups.push(getGroupFromGroupId(groupId))
-    }
-    console.log(selectedGroups)
-    for (group of selectedGroups) {
-        const surveyList = getSurveysFromGroupId(group.id);
-        for (const survey of surveyList) {
-            const date = survey.date;
-                dataList.push({ x: date, y: survey.averageScores[stageIndex] });
-          }
-    }
+function generateComparisonLineChartData(stageIndex) {
+  const colors = ['255, 99, 132', '255, 205, 86', '100, 150, 86', '75, 192, 192', '102, 0, 102', '0, 51, 153'];
+  const selectedGroups = [];
   let dataset = [];
-      dataset.push({
-      label: stage.id,
-      data: dataList,
+  for (groupId of model.inputs.groupComparison.groupIds) {
+    selectedGroups.push(getGroupFromGroupId(groupId));
+  }
+  for (let [groupindex, group] of selectedGroups.entries()) {
+    const surveyList = getSurveysFromGroupId(group.id);
+    let datalist = [];
+    for (let [i, survey] of surveyList.entries()) {
+      datalist.push({ x: (i + 1).toString(), y: survey.averageScores[stageIndex]});
+    }
+    dataset.push({
+      label: group.name,
+      data: datalist,
       fill: false,
-      borderColor: `rgb(${stage.color})`,
+      borderColor: `rgb(${colors[groupindex]})`,
       tension: 0.3,
-    });
+    });  
+  }
   return dataset;
 }

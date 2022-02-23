@@ -3,7 +3,7 @@ function getNextSurveyDate(group) {
   let mostRecentSurveyTime = new Date(mostRecentSurvey.date).getTime();
   nextSurvey = new Date(
     mostRecentSurveyTime + group.intervals * 86400000
-  ).toDateString();
+  ).toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' });
   return nextSurvey;
 }
 
@@ -39,10 +39,7 @@ function generateDonutChart(survey) {
             color: "dark grey",
             display: true,
             text: "Forrige undersøkelse",
-            font: {
-              family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-              size: 17.5,
-            },
+            font: { family: "Poppins", size: 16,},
           },
         },
       },
@@ -65,6 +62,11 @@ function generateGroupSiteLineChart() {
       scales: {},
       scales: {
         x: {
+          title: {
+            text: "Dato",
+            display: true,
+            font: {size: 15, family: "Poppins",}
+          },
           ticks: {
             color: "dark grey",
           },
@@ -73,6 +75,11 @@ function generateGroupSiteLineChart() {
           },
         },
         y: {
+          title: {
+            text: "Poeng",
+            display: true,
+            font: {size: 15, family: "Poppins",}
+          },
           ticks: {
             color: "dark grey",
           },
@@ -85,7 +92,7 @@ function generateGroupSiteLineChart() {
         legend: {
           labels: {
             color: "dark grey",
-            font: { size: 17 },
+            font: {size: 17, family: "Poppins"},
           },
         },
       },
@@ -99,7 +106,7 @@ function generateGroupSiteLineChartData() {
   let dataList = [[], [], [], [], []];
   let datasets = [];
   for (const survey of surveyList) {
-    const date = survey.date;
+    const date = new Date(survey.date).toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' });
     for (let i = 0; i < 4; i++) {
       dataList[i].push({ x: date, y: survey.averageScores[i] });
     }

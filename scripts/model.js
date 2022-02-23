@@ -188,19 +188,19 @@ const model = {
     ],
     stageData: [
       {
-        id: 'forming',
+        id: 'Forming',
         color: '255, 99, 132',
       },
       {
-        id: 'storming',
+        id: 'Storming',
         color: '255, 205, 86',
       },
       {
-        id: 'norming',
+        id: 'Norming',
         color: '100, 150, 86',
       },
       {
-        id: 'performing',
+        id: 'Performing',
         color: '75, 192, 192',
       },
     ],

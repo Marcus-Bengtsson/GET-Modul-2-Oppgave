@@ -1,6 +1,6 @@
 function updateSurveyPageView() {
   const surveyInput = model.inputs.surveyPage;
-  if (surveyInput.surveyId == null) {
+  if (surveyInput.answers.length == 0) {
     setupEmptySurvey();
   }
   

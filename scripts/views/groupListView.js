@@ -1,19 +1,21 @@
 function updateGroupListView() {
     let hasManagerAccess = false;
+    let disableButtons = '';
     if (getRoleFromUserID(model.app.userLoggedInId).id !== 2) {
         hasManagerAccess = true;
     }
+    if (model.inputs.groupList.markedGroupIds.length === 0) disableButtons = 'disabled';
+    else disableButtons = '';
     let html = `<div class="group-list">
     <h1>Gruppeoversikt<h1>
     ${hasManagerAccess ? `
         <div class="group-list-buttons">
-            <button>Last ned PDF</button>
-            <button onclick="/*model.inputs.groupComparison.groupIds = model.inputs.groupList.markedGroupIds; redirectToPage('GroupComparison')*/">Sammenlign</button>
-            <button onclick="redirectToPage('GroupEdit')">Rediger</button>
+            <button ${disableButtons}>Last ned PDF</button>
+            <button onclick="model.inputs.groupComparison.groupIds = model.inputs.groupList.markedGroupIds; redirectToPage('GroupComparison')" ${disableButtons}>Sammenlign</button>
+            <button onclick="redirectToPage('GroupEdit')" ${disableButtons}>Rediger</button>
             <button onclick="redirectToPage('GroupNew')">Lag ny</button>
         </div>`
-            : ""
-        }
+            : ""}
     
 <table class="group-list-table">
     <thead style="border: solid black 1px;" class="group-list-table-head">
@@ -32,9 +34,9 @@ function updateGroupListView() {
     `
     for (const group of getGroupsFromUserID(model.app.userLoggedInId, model.app.userLoggedInId == 7 ? false : true)) {
         let nextSurvey = getNextSurveyDate(group);
-        let mostRecentSurvey = new Date(getMostRecentSurveyFromGroupId(group.id).date).toDateString();
+        let mostRecentSurvey = new Date(getMostRecentSurveyFromGroupId(group.id).date).toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' });
         let isSurveyAvailable = false;
-        if (nextSurvey <= new Date().toDateString()) {
+        if (nextSurvey <= new Date().toLocaleDateString('no-nB', { weekday: 'long', month: 'long', day: 'numeric' })) {
             isSurveyAvailable = true;
         }
         if (nextSurvey == "Invalid Date") nextSurvey = "Ingen undersøkelser funnet";
@@ -51,7 +53,7 @@ function updateGroupListView() {
             <td>${mostRecentSurvey}</td>
             <td>${group.intervals}</td>
             <td>${getSurveysFromGroupId(group.id).length}</td>
-            <td>${new Date(group.startDate).toDateString().slice(4)}</td>
+            <td>${new Date(group.startDate).toLocaleDateString('no-nB', { weekday: 'short', month: 'long', day: 'numeric' }).slice(4)}</td>
         </tr>
         `
     }
