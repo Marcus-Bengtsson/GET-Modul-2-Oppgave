@@ -1,4 +1,5 @@
 function updateSurveyPageView() {
+  //#region 
   const surveyInput = model.inputs.surveyPage;
   if (surveyInput.answers.length == 0) {
     setupEmptySurvey();
@@ -7,7 +8,9 @@ function updateSurveyPageView() {
   const surveyTemplate = model.data.templates[0];
   surveyInput.lastPageNumber = surveyTemplate.pages.length;
   surveyInput.title = getSurveyTitle();
+  //#endregion
 
+  //#region 
   const componentInputs = {
     header: {
       title: surveyInput.title,
@@ -26,10 +29,13 @@ function updateSurveyPageView() {
       isChecked: surveyInput.commentIsAnonymous,
     }
   };
+  
 
   const pageElements = getPageElements(componentInputs);
   let pageQuestions = surveyTemplate.pages[surveyInput.pageNumber - 1].questions;
-
+  //#endregion
+  
+  //#region 
   return /*html*/ `
   <div class="survey-page">
   <section>
@@ -47,6 +53,7 @@ function updateSurveyPageView() {
     </div>
   </div>
   `;
+  //#endregion
 }
 
 function getPageElements(surveyViewInputs) {

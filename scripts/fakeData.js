@@ -1,7 +1,7 @@
 import { nameList } from './nameList.js';
 import { lastNameList } from './lastNameList.js'
-const emailProviders = [ "coldmail", "duckmail", "quietmail"]
-const emailTLD = ["hello", "404", "haha", "no"];
+const emailProviders = [ "hotmail", "gmail", "yahoo"]
+const emailTLD = ["net", "com", "org", "no"];
 const numberArray = [...Array(10).keys()];
 
 function reverseString(str) {
@@ -44,10 +44,10 @@ const fakeData = {
   password(username = fakeData.username(2, 4), minNumbers = 2, maxNumbers = 3) {
     return `${reverseString(username)}${randomNumberString(minNumbers, maxNumbers)}`;
   },
-  email(tldList = emailTLD, providerList = emailProviders) {
+  email(overrideName = '', tldList = emailTLD, providerList = emailProviders,) {
     const TLD = randomElementFromArray(tldList);
     const provider = randomElementFromArray(providerList);
-    const userName = fakeData.username();
+    const userName = overrideName != ''  ? overrideName : fakeData.username();
     return `${userName}@${provider}.${TLD}`;
   },
   user(id, roleId, avatarId) {
@@ -206,7 +206,7 @@ function generateUsers() {
       id: nextId,
       firstName: user.firstName,
       lastName: user.lastName,
-      email: fakeData.email(),
+      email: fakeData.email(user.firstName),
       password: fakeData.password(),
       roleId: 2,
       avatarId: 3

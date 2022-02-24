@@ -26,7 +26,7 @@ function updateGroupNewView() {
       rows: 10,
     },
     managerDropdown: {
-      labelText: 'Managerliste',
+      labelText: 'Teamledere',
       onChange: 'model.inputs.groupNew.managerDropdown = this.value',
       value: groupNew.managerDropdown,
       content: generateUserOptionList(getUsersFromRoleId(1)),
@@ -34,7 +34,7 @@ function updateGroupNewView() {
       buttonText: "+",
     },
     userDropdown: {
-      labelText: 'Brukerliste',
+      labelText: 'Brukere',
       onChange: 'model.inputs.groupNew.userDropdown = this.value',
       value: groupNew.userDropdown,
       content: generateUserOptionList(model.data.users),
@@ -49,10 +49,10 @@ function updateGroupNewView() {
       isRequired: true,
     },
     timeInterval: {
-      labelText: 'Tidsinterval (dager)',
+      labelText: 'Tidsintervall (dager)',
       value: groupNew.timeInterval,
       onChange: 'model.inputs.groupNew.timeInterval = parseInt(this.value)',
-      placeholderText: 'Velg tidsinterval',
+      placeholderText: 'Velg tidsintervall',
       isRequired: true,
     },
     deadline: {

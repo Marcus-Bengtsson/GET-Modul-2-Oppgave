@@ -59,7 +59,13 @@ function generateGroupSiteLineChart() {
     },
     options: {
       backgroundColor: "white",
-      scales: {},
+      elements: {
+        point: {
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointHitRadius: 6,
+      },
+    },
       scales: {
         x: {
           title: {

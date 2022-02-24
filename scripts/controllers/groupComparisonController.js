@@ -23,7 +23,7 @@ function generateComparisonLineChartObject(stage, stageIndex) {
           pointRadius: 4,
           pointHoverRadius: 6,
           pointHitRadius: 6,
-      }
+      },
     },
       scales: {
         x: {
